@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "SearchViewController.setupNavigationBarItems():SearchViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "UIImage(named: ImageConst.Icon)">
+            </PersistentString>
+            <PersistentString
+               value = "Bundle.main">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "EmagAPIRequest.parseProductDetails(document:):EmagAPIRequest.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "productSpecs.text()">
+            </PersistentString>
+            <PersistentString
+               value = "productSpecs">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "EmagAPIRequest.parseProduct(element:):EmagAPIRequest.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "productPrice.text()">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TableViewController.tableView(_:cellForRowAt:):TableViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "indexPath.section">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "EmagAPIRequest.searchForProducts(skip:handler:):EmagAPIRequest.swift">
+      </ContextState>
+      <ContextState
+         contextName = "Product.init(data:):Product.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "data?[EmagAPIRequest2.EmagKey.ProductMetaData2.Price]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
