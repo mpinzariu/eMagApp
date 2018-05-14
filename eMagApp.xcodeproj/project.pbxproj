@@ -21,8 +21,7 @@
 		60A010752090755E00EAE5B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60A010732090755E00EAE5B1 /* LaunchScreen.storyboard */; };
 		60CE1A55209C80E400BD5F21 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CE1A54209C80E400BD5F21 /* Product.swift */; };
 		60CE1A57209C80EF00BD5F21 /* ProductDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CE1A56209C80EF00BD5F21 /* ProductDetails.swift */; };
-		60CE1A59209C810700BD5F21 /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CE1A58209C810700BD5F21 /* Extentions.swift */; };
-		60CE1A5B209C814400BD5F21 /* DummyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CE1A5A209C814400BD5F21 /* DummyModel.swift */; };
+		60CE1A59209C810700BD5F21 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CE1A58209C810700BD5F21 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,8 +43,7 @@
 		60A010762090755E00EAE5B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		60CE1A54209C80E400BD5F21 /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		60CE1A56209C80EF00BD5F21 /* ProductDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDetails.swift; sourceTree = "<group>"; };
-		60CE1A58209C810700BD5F21 /* Extentions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
-		60CE1A5A209C814400BD5F21 /* DummyModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DummyModel.swift; sourceTree = "<group>"; };
+		60CE1A58209C810700BD5F21 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,14 +77,14 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
-		608E326F20A1739B00D8E06C /* Controlller */ = {
+		608E326F20A1739B00D8E06C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				60476F9E209C81B300AFD98D /* SearchViewController.swift */,
 				60476FA0209C81C300AFD98D /* TableViewController.swift */,
 				60476FA4209C81DC00AFD98D /* ProductDetalisViewController.swift */,
 			);
-			name = Controlller;
+			name = Controller;
 			sourceTree = "<group>";
 		};
 		60A0105E2090755D00EAE5B1 = {
@@ -113,7 +111,7 @@
 				60A0106E2090755D00EAE5B1 /* Main.storyboard */,
 				60A010762090755E00EAE5B1 /* Info.plist */,
 				6041407B209C7FFF00390E03 /* Model */,
-				608E326F20A1739B00D8E06C /* Controlller */,
+				608E326F20A1739B00D8E06C /* Controller */,
 				6041407A209C7FD900390E03 /* Views */,
 				60A0107C209078C600EAE5B1 /* Support files */,
 			);
@@ -123,8 +121,7 @@
 		60A0107C209078C600EAE5B1 /* Support files */ = {
 			isa = PBXGroup;
 			children = (
-				60CE1A58209C810700BD5F21 /* Extentions.swift */,
-				60CE1A5A209C814400BD5F21 /* DummyModel.swift */,
+				60CE1A58209C810700BD5F21 /* Extensions.swift */,
 				604D9F9C20A32A4800C69A2F /* Constants.swift */,
 				60A0106A2090755D00EAE5B1 /* AppDelegate.swift */,
 				60A010712090755E00EAE5B1 /* Assets.xcassets */,
@@ -266,12 +263,11 @@
 				60476F9F209C81B300AFD98D /* SearchViewController.swift in Sources */,
 				60476FA3209C81CF00AFD98D /* ProductTableViewCell.swift in Sources */,
 				60476FA1209C81C300AFD98D /* TableViewController.swift in Sources */,
-				60CE1A59209C810700BD5F21 /* Extentions.swift in Sources */,
+				60CE1A59209C810700BD5F21 /* Extensions.swift in Sources */,
 				604D9F9B20A3299F00C69A2F /* HelperParse.swift in Sources */,
 				60A0106B2090755D00EAE5B1 /* AppDelegate.swift in Sources */,
 				60CE1A57209C80EF00BD5F21 /* ProductDetails.swift in Sources */,
 				60476FA5209C81DC00AFD98D /* ProductDetalisViewController.swift in Sources */,
-				60CE1A5B209C814400BD5F21 /* DummyModel.swift in Sources */,
 				60CE1A55209C80E400BD5F21 /* Product.swift in Sources */,
 				604D9F9D20A32A4800C69A2F /* Constants.swift in Sources */,
 			);
@@ -419,7 +415,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3DF7U8AUXW;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = eMagApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -438,7 +434,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3DF7U8AUXW;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = eMagApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

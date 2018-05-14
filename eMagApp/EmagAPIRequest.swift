@@ -1,26 +1,29 @@
 //
-//  EmagAPIRequest2.swift
+//  EmagAPIRequest.swift
 //  eMagApp
 //
 //  Created by Pinzariu Marian on 07/05/2018.
 //  Copyright © 2018 Pinzariu Marian. All rights reserved.
 //
-
-import Foundation
-
 import Foundation
 import SwiftSoup
 
-public class EmagAPIRequest: NSObject {
+public class EmagAPIRequest : Equatable {
     
     private var requestValue: String?
     private var elementsFromSearch: Elements? = nil
     private var htmlValue: String? = ""
     
+    // MARK: - Equatable
+    public static func == (lhs: EmagAPIRequest, rhs: EmagAPIRequest) -> Bool {
+        return lhs.requestValue == rhs.requestValue
+    }
+    
     public init(search: String) {
         self.requestValue = search
     }
     
+    // MARK: - Functions
     public func downloadHTML() {
         do {
             htmlValue = getDownloadHtml(requestType: EmagKey.Search, href: requestValue!)
@@ -41,17 +44,14 @@ public class EmagAPIRequest: NSObject {
     }
     
     public func fetchProducts(_ handler: @escaping (Product) -> Void) {
-        fetch { results in
+        //fetch { results in
+        searchForProducts { results in
             if let dictionary = results as? Dictionary<String, AnyObject>,
                let newProduct = Product(data: dictionary) {
                 
                 handler(newProduct)
             }
         }
-    }
-    
-    private func fetch(_ handler: @escaping (_ results: PropertyList?) -> Void) {
-        searchForProducts(handler: handler)
     }
     
     public func setProductDetails(product: Product) {
@@ -63,6 +63,7 @@ public class EmagAPIRequest: NSObject {
         product.productDetails = productDetails
     }
     
+    // MARK: - Helper Functions
     private func getDocumentFromHtml(requestType: String, href: String) -> Document {
         var document: Document = Document.init("")
         

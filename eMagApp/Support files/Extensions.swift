@@ -61,7 +61,7 @@ extension String {
 }
 
 extension UIViewController {
-    func showWarrining(title: String, message: String) {
+    func showWarning(title: String, message: String) {
         // create the alert
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
         
@@ -81,7 +81,6 @@ extension UIImageView {
     func loadImageUsingUrlString(url: URL) {
         
         self.image = nil
-        
         if let imageFromCache = Cache.image.object(forKey: url.absoluteURL as AnyObject) as? UIImage {
             self.image = imageFromCache
             return
@@ -96,11 +95,8 @@ extension UIImageView {
             }
             
             DispatchQueue.main.asyncAfter(deadline: .now(), execute: { [weak self] in
-                
                 let imageToCache = UIImage(data: data!)
-                
                 Cache.image.setObject(imageToCache!, forKey: url.absoluteURL as AnyObject)
-                
                 self?.image = imageToCache
             })
             

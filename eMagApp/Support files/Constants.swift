@@ -24,6 +24,7 @@ struct Cache {
     public static let elements = NSCache<AnyObject, AnyObject>()
 }
 
+// TODO:EM: rename to lowercase
 struct EmagKey {
     static let ByProduct = ""
     static let Search = "search/"
@@ -51,7 +52,7 @@ struct EmagKey {
         static let Price = "price"
         static let SmallImageURL = "smallImageURL"
     }
-    
+    // why do these exist, it's not like the HTML standard is going to change anytime soon.
     struct HtmlTags {
         static let Href = "href"
         static let Sup = "sup"

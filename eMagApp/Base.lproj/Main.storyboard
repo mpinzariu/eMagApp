@@ -57,7 +57,7 @@
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <segue destination="LLD-3U-A3j" kind="show" identifier="ShowSearchResults" id="cvt-16-OQZ"/>
+                                                    <segue destination="LLD-3U-A3j" kind="show" identifier="ShowSearchResults" animates="NO" id="cvt-16-OQZ"/>
                                                 </connections>
                                             </button>
                                         </subviews>

@@ -12,15 +12,15 @@ class TableViewController: UITableViewController {
     
     private let cellIdentifier = "cell"
     private let productIdentifier = "Product"
-    private let showProductDetailsIdentifier = "ShowProductDetails"
+    private let idSegueToDetails = "ShowProductDetails"
     
+    private var lastEmagAPIRequest: EmagAPIRequest?
     private var activityIndicatorView: UIActivityIndicatorView!
     private var products: [Product] = []
     
     var searchText: String? {
         didSet {            
             products.removeAll()
-            
             title = searchText
         }
     }
@@ -30,14 +30,12 @@ class TableViewController: UITableViewController {
             return lastEmagAPIRequest
         }
         
-        if let query = searchText, !query.isEmpty {
-            return EmagAPIRequest(search: query)
+        if let searchText = searchText, !searchText.isEmpty {
+            return EmagAPIRequest(search: searchText)
         }
         
         return nil
     }
-    
-    private var lastEmagAPIRequest: EmagAPIRequest?
     
     private func searchForProducts() {
         if let request = emagRequest() {
@@ -47,29 +45,37 @@ class TableViewController: UITableViewController {
             activityIndicatorView.startAnimating()
             
             DispatchQueue.global(qos: .userInteractive).async {
-                self.lastEmagAPIRequest!.downloadHTML()
-            
-                request.fetchProducts { [unowned self] newProduct in
-                    
-                    DispatchQueue.main.asyncAfter(deadline: .now(), execute: { [weak self] in
-                        if request == self?.lastEmagAPIRequest {
-                            if !(self?.products.contains(newProduct))! {
-                                let index = (self?.products.count)!
-                                self?.products.insert(newProduct, at: index)
-                                
-                                self?.tableView.beginUpdates()
-                                self?.tableView.insertRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
-                                self?.tableView.endUpdates()
-                                
-                                self?.tableView.separatorStyle = .singleLine
-                                self?.activityIndicatorView.stopAnimating()
-                            }
-                        }
-                    })
-                }
+                [weak self] in self?.asyncLoad(request)
             }
-            
         }
+    }
+    
+    private func asyncLoad(_ request: EmagAPIRequest) {
+        self.lastEmagAPIRequest!.downloadHTML()
+        request.fetchProducts { [unowned self] newProduct in
+            DispatchQueue.main.asyncAfter(deadline: .now(), execute: { [weak self] in
+                if self != nil {
+                    self?.callbackUpdateView(request, newProduct)
+                }
+            }) // end callack to main
+        } // end fetch Products
+    }
+    
+    private func callbackUpdateView(_ request: EmagAPIRequest, _ newProduct: Product) {
+        if let lastRequest = self.lastEmagAPIRequest, request == lastRequest {
+            if !(self.products.contains(newProduct)) {
+                let index = self.products.count
+                self.products.insert(newProduct, at: index)
+                
+                self.tableView.beginUpdates()
+                self.tableView.insertRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
+                self.tableView.endUpdates()
+                
+                self.tableView.separatorStyle = .singleLine
+                self.activityIndicatorView.stopAnimating()
+            }
+        }
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -114,14 +120,10 @@ class TableViewController: UITableViewController {
     // MARK: - Navigation
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destinationViewController = segue.destination
-        let indentifier = segue.identifier
-        
-        if indentifier == showProductDetailsIdentifier,
-           let productDetalisViewController = destinationViewController as? ProductDetalisViewController {
-            
-            let indexPath = tableView.indexPathForSelectedRow!
-            
+        if segue.identifier == idSegueToDetails,
+            let productDetalisViewController = segue.destination as? ProductDetalisViewController,
+            let indexPath = tableView.indexPathForSelectedRow
+        {
             DispatchQueue.global(qos: .background).async {                
                 self.lastEmagAPIRequest!.setProductDetails(product: self.products[indexPath.row])
                 productDetalisViewController.productDetails = self.products[indexPath.row].productDetails

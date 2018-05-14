@@ -23,7 +23,9 @@ class ProductDetalisViewController: UIViewController {
     
     weak var productDetails: ProductDetails? {
         didSet {
-            updateUI()
+            DispatchQueue.main.async { [weak self] in
+                self?.updateUI()
+            }
         }
     }
 
@@ -62,7 +64,6 @@ class ProductDetalisViewController: UIViewController {
     
     private func updateUI() {
         if productDetails != nil {
-            
             productLargeImageView.loadImageUsingUrlString(url: productDetails!.largeImageURL!)
 
             if productDetails!.product != nil {
