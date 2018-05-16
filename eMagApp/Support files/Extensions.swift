@@ -89,16 +89,18 @@ extension UIImageView {
             (data, response, error) in
             
             if error != nil {
-                self.image = #imageLiteral(resourceName: "noPicOnline")
+                DispatchQueue.main.async { [weak self] in
+                    self?.image = #imageLiteral(resourceName: "noPicOnline")
+                }
                 print(error!)
                 return
             }
             
-            DispatchQueue.main.asyncAfter(deadline: .now(), execute: { [weak self] in
+            DispatchQueue.main.async { [weak self] in
                 let imageToCache = UIImage(data: data!)
                 Cache.image.setObject(imageToCache!, forKey: url.absoluteURL as AnyObject)
                 self?.image = imageToCache
-            })
+            }
             
         }).resume()
     }

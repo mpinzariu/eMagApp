@@ -91,8 +91,7 @@ class ProductsTableViewController: UITableViewController {
             makeEmagNavigationButton(touchAction: #selector(leftBarButtonItemTapped),
                                      customEdgeInset: UIEdgeInsetsMake(-1, -50, 1, 1)))
         
-        activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .gray)
-        activityIndicatorView.hidesWhenStopped = true
+        activityIndicatorView = makeActivityIndicator()
         tableView.backgroundView = activityIndicatorView
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)

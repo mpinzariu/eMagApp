@@ -268,7 +268,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.93233216580949296" green="0.93233216580949296" blue="0.93233216580949296" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="jsG-kP-zrw" firstAttribute="leading" secondItem="ZqX-Iy-9St" secondAttribute="leading" id="068-mR-nio"/>
                             <constraint firstItem="jsG-kP-zrw" firstAttribute="top" secondItem="ZqX-Iy-9St" secondAttribute="top" id="6g8-kE-yNK"/>

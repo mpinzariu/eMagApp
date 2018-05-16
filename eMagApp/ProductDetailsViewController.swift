@@ -85,8 +85,7 @@ class ProductDetailsViewController: UIViewController {
             let imagesVC = segue.destination as? ImageSliderViewController,
             let imageUrls = productDetails?.largeImageUrls
         {
-                imagesVC.imageUrls = imageUrls
-                print(" >> from Details to images with \(imageUrls.count ) image URLs.")
+            imagesVC.imageUrls = imageUrls
         }
     }
     

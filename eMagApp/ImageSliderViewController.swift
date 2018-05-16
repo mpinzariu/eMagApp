@@ -35,10 +35,10 @@ class ImageSliderViewController: UIViewController {
         // activity
         activityIndicatorView = makeActivityIndicator()
         activityIndicatorView.center = view.center
-        scrollImagesView.addSubview(activityIndicatorView)
+        view.addSubview(activityIndicatorView)
         activityIndicatorView.startAnimating()
         
-        // if imageUrls was set before loading/creating controls, set controls
+        // if imageUrls was set before loading/creating controls
         if imageUrls != nil {
             updateUI()
         }
@@ -77,13 +77,14 @@ class ImageSliderViewController: UIViewController {
         let imgview = UIImageView()
         imgview.contentMode = .scaleAspectFit
         let xPos = self.view.frame.width * CGFloat(i)
-        imgview.frame = CGRect(x: xPos, y: 0, width: self.scrollImagesView.frame.width, height: self.scrollImagesView.frame.width)
+        imgview.frame = CGRect(x: xPos, y: 0, width: self.scrollImagesView.frame.width, height: self.scrollImagesView.frame.height)
         return imgview
     }
     
     private func updateTitle() {
         if let imageUrls = imageUrls {
-            self.title = String("\(imageUrls.count) images")
+            let total = imageUrls.count
+            self.title = total == 1 ? "1 image" : String("\(total) images")
         } else {
             self.title = "No images found"
         }
