@@ -13,8 +13,9 @@ class TableViewController: UITableViewController {
     private let cellIdentifier = "cell"
     private let productIdentifier = "Product"
     private let idSegueToDetails = "ShowProductDetails"
+    private let idSegueToImages = "ShowImageSlider"
     
-    private var lastEmagAPIRequest: EmagAPIRequest?
+    private var lastEmagAPIRequest: EmagRequest?
     private var activityIndicatorView: UIActivityIndicatorView!
     private var products: [Product] = []
     
@@ -25,13 +26,13 @@ class TableViewController: UITableViewController {
         }
     }
 
-    private func emagRequest() -> EmagAPIRequest? {
+    private func emagRequest() -> EmagRequest? {
         if lastEmagAPIRequest != nil {
             return lastEmagAPIRequest
         }
         
         if let searchText = searchText, !searchText.isEmpty {
-            return EmagAPIRequest(search: searchText)
+            return EmagRequest(search: searchText)
         }
         
         return nil
@@ -50,18 +51,18 @@ class TableViewController: UITableViewController {
         }
     }
     
-    private func asyncLoad(_ request: EmagAPIRequest) {
+    private func asyncLoad(_ request: EmagRequest) {
         self.lastEmagAPIRequest!.downloadHTML()
         request.fetchProducts { [unowned self] newProduct in
             DispatchQueue.main.asyncAfter(deadline: .now(), execute: { [weak self] in
                 if self != nil {
                     self?.callbackUpdateView(request, newProduct)
                 }
-            }) // end callack to main
+            }) // end callback to main
         } // end fetch Products
     }
     
-    private func callbackUpdateView(_ request: EmagAPIRequest, _ newProduct: Product) {
+    private func callbackUpdateView(_ request: EmagRequest, _ newProduct: Product) {
         if let lastRequest = self.lastEmagAPIRequest, request == lastRequest {
             if !(self.products.contains(newProduct)) {
                 let index = self.products.count
@@ -75,12 +76,10 @@ class TableViewController: UITableViewController {
                 self.activityIndicatorView.stopAnimating()
             }
         }
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
         tableView.reloadData()
         searchForProducts()
     }
@@ -88,7 +87,9 @@ class TableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupNavigationBarItems()
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView:
+            makeEmagNavigationButton(touchAction: #selector(leftBarButtonItemTapped),
+                                     customEdgeInset: UIEdgeInsetsMake(-1, -50, 1, 1)))
         
         activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .gray)
         activityIndicatorView.hidesWhenStopped = true
@@ -106,8 +107,6 @@ class TableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: productIdentifier, for: indexPath)
-
-        // Configure the cell...
         let product: Product = products[indexPath.row]
         
         if let productCell = cell as? ProductTableViewCell {
@@ -118,31 +117,32 @@ class TableViewController: UITableViewController {
     }
     
     // MARK: - Navigation
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == idSegueToDetails,
-            let productDetalisViewController = segue.destination as? ProductDetalisViewController,
-            let indexPath = tableView.indexPathForSelectedRow
-        {
-            DispatchQueue.global(qos: .background).async {                
-                self.lastEmagAPIRequest!.setProductDetails(product: self.products[indexPath.row])
-                productDetalisViewController.productDetails = self.products[indexPath.row].productDetails
+        
+        if let indexPath = tableView.indexPathForSelectedRow {
+            let product = self.products[indexPath.row]
+            if segue.identifier == idSegueToDetails,
+                let productDetalisViewController = segue.destination as? ProductDetailsViewController
+            {
+                DispatchQueue.global(qos: .background).async {
+                    self.lastEmagAPIRequest!.setProductDetails(product: product)
+                    productDetalisViewController.productDetails = product.productDetails
+                }
+            }
+            else if segue.identifier == idSegueToImages,
+                let imagesVC = segue.destination as? ImageSliderViewController
+            {
+                DispatchQueue.global(qos: .background).async {
+                    // get details; need only urls, but the overhead is minuscule.
+                    self.lastEmagAPIRequest!.setProductDetails(product: product)
+                    imagesVC.imageUrls = product.productDetails?.largeImageUrls
+                    print(" >> from TableView[\(indexPath.row)] to images with \(product.productDetails?.largeImageUrls?.count ?? 0 ) image URLs.")
+                }
             }
         }
     }
     
-    private func setupNavigationBarItems() {
-        let buttonLeft =  UIButton(type: .custom)
-        buttonLeft.setImage(UIImage(named: "logoEmag16"), for: .normal)
-        buttonLeft.addTarget(self, action: #selector(leftBarButtonItemTapped), for: .touchUpInside)
-        buttonLeft.frame = CGRect(x: 0, y: 0, width: 50, height: 31)
-        buttonLeft.imageEdgeInsets = UIEdgeInsetsMake(-1, -50, 1, 1) //move image to the right
-        
-        let barButtonLeft = UIBarButtonItem(customView: buttonLeft)
-        self.navigationItem.leftBarButtonItem = barButtonLeft
-    }
-    
-    @objc func leftBarButtonItemTapped(_ sender: UIBarButtonItem) {
+    @objc func leftBarButtonItemTapped() {
         dismiss(animated: true, completion: nil)
     }
 }

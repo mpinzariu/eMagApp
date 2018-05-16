@@ -79,7 +79,6 @@ extension UIImageView {
     }
 
     func loadImageUsingUrlString(url: URL) {
-        
         self.image = nil
         if let imageFromCache = Cache.image.object(forKey: url.absoluteURL as AnyObject) as? UIImage {
             self.image = imageFromCache
@@ -90,7 +89,8 @@ extension UIImageView {
             (data, response, error) in
             
             if error != nil {
-                print(error ?? "")
+                self.image = #imageLiteral(resourceName: "noPicOnline")
+                print(error!)
                 return
             }
             
@@ -101,6 +101,24 @@ extension UIImageView {
             })
             
         }).resume()
+    }
+}
+
+extension UIViewController {
+    func makeEmagNavigationButton(touchAction: Selector, customEdgeInset: UIEdgeInsets) -> UIButton {
+        let buttonLeft = UIButton(type: .custom)
+        buttonLeft.setImage(UIImage(named: "logoEmag16"), for: .normal)
+        buttonLeft.addTarget(self, action: touchAction, for: .touchUpInside)
+        buttonLeft.frame = CGRect(x: 0, y: 0, width: 50, height: 31)
+        buttonLeft.imageEdgeInsets = customEdgeInset
+        return buttonLeft
+    }
+    
+    func makeActivityIndicator() -> UIActivityIndicatorView {
+        let activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+        activityIndicatorView.color = UIColor.blue
+        activityIndicatorView.hidesWhenStopped = true
+        return activityIndicatorView
     }
 }
 

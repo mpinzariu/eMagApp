@@ -24,24 +24,20 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
     
     override func shouldPerformSegue(withIdentifier identifier: String?, sender: Any?) -> Bool {
         if identifier == idSegueToResults, (searchTextField.text?.count)! <= 2 {
-            
-                showWarning(title: "Search warning",
-                              message: "The length of the search text must be at least with 3 characters!")
-        
-                return false
+            showWarning(title: "Search warning",
+                        message: "The length of the search text must be at least with 3 characters!")
+            return false
         }
-        
         return true
     }
     
     // MARK: - Navigation
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {        
         if segue.identifier == idSegueToResults,
             let navigationController = segue.destination as? UINavigationController,
-            let tableViewController = navigationController.viewControllers.first as? TableViewController {
-            
-                tableViewController.searchText = searchTextField.text
+            let tableViewController = navigationController.viewControllers.first as? TableViewController
+        {
+            tableViewController.searchText = searchTextField.text
         }
     }
     

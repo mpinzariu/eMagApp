@@ -8,14 +8,14 @@
 import Foundation
 import SwiftSoup
 
-public class EmagAPIRequest : Equatable {
+public class EmagRequest : Equatable {
     
     private var requestValue: String?
     private var elementsFromSearch: Elements? = nil
     private var htmlValue: String? = ""
     
     // MARK: - Equatable
-    public static func == (lhs: EmagAPIRequest, rhs: EmagAPIRequest) -> Bool {
+    public static func == (lhs: EmagRequest, rhs: EmagRequest) -> Bool {
         return lhs.requestValue == rhs.requestValue
     }
     
@@ -44,7 +44,7 @@ public class EmagAPIRequest : Equatable {
     }
     
     public func fetchProducts(_ handler: @escaping (Product) -> Void) {
-        //fetch { results in
+        
         searchForProducts { results in
             if let dictionary = results as? Dictionary<String, AnyObject>,
                let newProduct = Product(data: dictionary) {

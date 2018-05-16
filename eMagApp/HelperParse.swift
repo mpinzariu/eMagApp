@@ -61,28 +61,38 @@ struct HelperParse {
         var productDetails: ProductDetails? = nil
         
         do {
-            var productAvailabilityValue = ""
-            var productDescriptionValue = ""
-            var productSpecsValue = ""
-            var productLargeImageHrefValue = ""
+            var availability = ""
+            var description = ""
+            var specs = ""
+            var productLargeImageHrefValue: String? = nil
+            var imageUrls: [String]? = [String]()
             
             if let productAvailability: Element = try! document.select(EmagKey.ProductMetaData.Availability).first() {
-                productAvailabilityValue = try productAvailability.text()
+                availability = try productAvailability.text()
             }
             
             if let productDescription: Element = try! document.select(EmagKey.ProductMetaData.Description).first() {
-                productDescriptionValue = try productDescription.html()
+                description = try productDescription.html()
             }
             
             if let productSpecs: Element = try! document.select(EmagKey.ProductMetaData.Specs).first() {
-                productSpecsValue = try productSpecs.html()
+                specs = try productSpecs.html()
             }
             
             if let productLargelImageHref: Element = try! document.select(EmagKey.ProductMetaData.LargeImageURL).first() {
-                productLargeImageHrefValue = (try getElement(productLargelImageHref, EmagKey.HtmlTags.Img)?.attr(EmagKey.HtmlTags.Src))!
+                productLargeImageHrefValue = (try getElement(productLargelImageHref, EmagKey.HtmlTags.Img)?.attr(EmagKey.HtmlTags.Src)) ?? nil
             }
             
-            productDetails = ProductDetails(description: productDescriptionValue, specs: productSpecsValue, availability: productAvailabilityValue, largeImageURL: URL(string: productLargeImageHrefValue))
+            let root = try! document.select("div#product-gallery").first()
+            let imageNodes: Elements = try! root!.select("a")
+            for node in imageNodes {
+                let url = try node.attr("href")
+                if !url.isEmpty && !(imageUrls!.contains(url)) {
+                    imageUrls!.append(url)
+                }
+            }
+            
+            productDetails = ProductDetails(description: description, specs: specs, availability: availability, largeImageURL: productLargeImageHrefValue,  largeImageURLs: imageUrls)
         } catch let error {
             log("Error on parseProductDetails: \(error)")
         }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class Product: NSObject {
+public class Product : Equatable { 
     var href: String
     var name: String
     var price: Double
@@ -39,12 +39,12 @@ public class Product: NSObject {
         self.init(href, name, price, smallImageURL)
     }
     
-    static func == (left: Product, right: Product) -> Bool {
+    public static func == (left: Product, right: Product) -> Bool {
         return (left.href == right.href) && (left.name == right.name)
     }
     
-    static func != (left: Product, right: Product) -> Bool {
-        return !(left == right)
-    }
+//    static func != (left: Product, right: Product) -> Bool {
+//        return !(left == right)
+//    }
 }
 

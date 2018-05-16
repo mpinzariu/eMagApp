@@ -44,6 +44,7 @@ struct EmagKey {
         static let Specs = ".gtm_product-page-specs"
         static let Availability = "span.label"
         static let LargeImageURL = ".product-gallery-image"
+        static let LargeImageList = ".ph-scroller"
     }
     
     struct ProductProperty {

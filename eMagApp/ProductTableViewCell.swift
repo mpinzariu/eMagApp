@@ -10,6 +10,7 @@ import UIKit
 
 class ProductTableViewCell: UITableViewCell {
 
+    // TODO: ViewController.
     @IBOutlet weak var productNameLabel: UILabel!
     @IBOutlet weak var productPriceLabel: UILabel!
     @IBOutlet weak var productImageView: UIImageView!
@@ -32,6 +33,8 @@ class ProductTableViewCell: UITableViewCell {
     
     private func updateUI() {
         if product != nil {
+            let onTap = UITapGestureRecognizer(target: self, action: #selector(launchSegueToImages))
+            productImageView.addGestureRecognizer(onTap)
             productImageView.loadImageUsingUrlString(url: product!.smallImageURL!)
 
             productNameLabel?.text = product?.name
@@ -41,6 +44,12 @@ class ProductTableViewCell: UITableViewCell {
         } else {
             resetValues()
         }
+    }
+    
+    @objc
+    private func launchSegueToImages() {
+        //print("!!image tapped!!!")
+        //performSegue(withIdentifier: "ShowImageSlider", sender: self)
     }
     
     private func setupActivityIndicator() {

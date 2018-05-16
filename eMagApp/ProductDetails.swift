@@ -14,13 +14,40 @@ public class ProductDetails {
     var specs: String? = ""
     var availability: String? = ""
     var largeImageURL: URL?
+    var largeImageUrls: [URL]?
     
     weak var product: Product? = nil
     
-    init(description: String, specs: String, availability: String, largeImageURL: URL?) {
+    init(description: String, specs: String, availability: String, largeImageURL: String?, largeImageURLs: [String]?) {
         self.descriptionProduct = description
         self.specs = specs
         self.availability = availability
-        self.largeImageURL = largeImageURL
+        self.largeImageUrls = convert(largeImageURLs)
+        self.largeImageURL = convert(largeImageURL)
+        
+        // if no 'main' image was provided, pick the first from list (if any)
+        if largeImageURL == nil && largeImageURLs != nil && largeImageURLs!.count > 0 {
+            self.largeImageURL = URL(string: largeImageURLs![0])
+        }
+    }
+    
+    private func convert(_ urlText: [String]? ) -> [URL]? {
+        var result: [URL]?
+        
+        if urlText == nil { return nil }
+        result = [URL]()
+        for text in urlText! {
+            if let url = convert(text) {
+                result!.append(url)
+            } // else, skip the string.
+        }
+        return result
+    }
+    private func convert(_ urlText: String?) -> URL? {
+        var result: URL? = nil
+        if let urlText = urlText {
+            result = URL(string: urlText)
+        }
+        return result
     }
 }

@@ -9,7 +9,7 @@
 import UIKit
 import Foundation
 
-class ProductDetalisViewController: UIViewController {
+class ProductDetailsViewController: UIViewController {
 
     @IBOutlet weak var productLargeImageView: UIImageView!
     @IBOutlet weak var productNameLabel: UILabel!
@@ -28,34 +28,20 @@ class ProductDetalisViewController: UIViewController {
             }
         }
     }
+    private let idSegueToImages = "ShowImageSlider"
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupNavigationBarItems()
-        setupActivityIndicator()
+        let button = makeEmagNavigationButton(touchAction: #selector(rightBarButtonItemTapped), customEdgeInset: UIEdgeInsetsMake(-1, 1, 1, -41))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: button)
         
+        activityIndicatorView = makeActivityIndicator()
+        activityIndicatorView.center = view.center
+        view.addSubview(activityIndicatorView)
         activityIndicatorView.startAnimating()
         
         updateUI()
-    }
-
-    private func setupNavigationBarItems() {
-        let buttonRight =  UIButton(type: .custom)
-        buttonRight.setImage(UIImage(named: "logoEmag16"), for: .normal)
-        buttonRight.addTarget(self, action: #selector(rightBarButtonItemTapped), for: .touchUpInside)
-        buttonRight.frame = CGRect(x: 0, y: 0, width: 50, height: 31)
-        buttonRight.imageEdgeInsets = UIEdgeInsetsMake(-1, 1, 1, -41) //move image to the right
-        
-        let barButtonRight = UIBarButtonItem(customView: buttonRight)
-        self.navigationItem.rightBarButtonItem = barButtonRight
-    }
-    
-    private func setupActivityIndicator() {
-        activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .gray)
-        activityIndicatorView.hidesWhenStopped = true
-        activityIndicatorView.center = view.center
-        view.addSubview(activityIndicatorView)
     }
     
     @objc func rightBarButtonItemTapped(_ sender: UIBarButtonItem) {
@@ -64,8 +50,10 @@ class ProductDetalisViewController: UIViewController {
     
     private func updateUI() {
         if productDetails != nil {
+            let onTap = UITapGestureRecognizer(target: self, action: #selector(launchSegueToImages))
             productLargeImageView.loadImageUsingUrlString(url: productDetails!.largeImageURL!)
-
+            productLargeImageView.addGestureRecognizer(onTap)
+            
             if productDetails!.product != nil {
                 productNameLabel.text = productDetails!.product!.name
                 productPriceLabel.text = productDetails!.product!.priceString
@@ -84,6 +72,24 @@ class ProductDetalisViewController: UIViewController {
             resetValues()
         }
     }
+    
+    @objc
+    private func launchSegueToImages() {
+        performSegue(withIdentifier: idSegueToImages, sender: self)
+    }
+    
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == idSegueToImages,
+            let imagesVC = segue.destination as? ImageSliderViewController,
+            let imageUrls = productDetails?.largeImageUrls
+        {
+                imagesVC.imageUrls = imageUrls
+                print(" >> from Details to images with \(imageUrls.count ) image URLs.")
+        }
+    }
+    
     
     private func resetValues() {
         productLargeImageView?.image = nil
