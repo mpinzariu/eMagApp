@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TableViewController: UITableViewController {
+class ProductsTableViewController: UITableViewController {
     
     private let cellIdentifier = "cell"
     private let productIdentifier = "Product"
@@ -109,8 +109,12 @@ class TableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: productIdentifier, for: indexPath)
         let product: Product = products[indexPath.row]
         
-        if let productCell = cell as? ProductTableViewCell {
-            productCell.product = product
+        if let productCell = cell as? ProductTableViewCell  {
+            if productCell.delegate == nil {
+                productCell.delegate = ProductCellDelegate()
+                
+                productCell.delegate?.updateUI(productCell, product, launchSegueToImages(_:))
+            }
         }
         
         return cell
@@ -129,18 +133,29 @@ class TableViewController: UITableViewController {
                     productDetalisViewController.productDetails = product.productDetails
                 }
             }
-            else if segue.identifier == idSegueToImages,
-                let imagesVC = segue.destination as? ImageSliderViewController
-            {
-                DispatchQueue.global(qos: .background).async {
-                    // get details; need only urls, but the overhead is minuscule.
-                    self.lastEmagAPIRequest!.setProductDetails(product: product)
-                    imagesVC.imageUrls = product.productDetails?.largeImageUrls
-                    print(" >> from TableView[\(indexPath.row)] to images with \(product.productDetails?.largeImageUrls?.count ?? 0 ) image URLs.")
-                }
+        }
+        
+        if segue.identifier == idSegueToImages,
+            let imagesVC = segue.destination as? ImageSliderViewController,
+            let product = sender as? Product
+        {
+            DispatchQueue.global(qos: .background).async {
+                // get details; need only urls, but the overhead is minuscule.
+                self.lastEmagAPIRequest!.setProductDetails(product: product)
+                imagesVC.imageUrls = product.productDetails?.largeImageUrls
             }
         }
     }
+    
+    
+//    @objc private func onImageTap() {
+//        //launchSegueToImages(model!)
+//    }
+    
+    private func launchSegueToImages(_ product: Product) {
+        performSegue(withIdentifier: idSegueToImages, sender: product)
+    }
+    
     
     @objc func leftBarButtonItemTapped() {
         dismiss(animated: true, completion: nil)

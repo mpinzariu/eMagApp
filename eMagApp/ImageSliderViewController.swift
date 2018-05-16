@@ -34,7 +34,7 @@ class ImageSliderViewController: UIViewController {
         
         // activity
         activityIndicatorView = makeActivityIndicator()
-        activityIndicatorView.center = scrollImagesView.center
+        activityIndicatorView.center = view.center
         scrollImagesView.addSubview(activityIndicatorView)
         activityIndicatorView.startAnimating()
         

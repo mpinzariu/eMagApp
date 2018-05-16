@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		436982509A15900C45AC82AD /* Pods_eMagApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EA5695841F404BAE91446E7 /* Pods_eMagApp.framework */; };
 		60476F9F209C81B300AFD98D /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60476F9E209C81B300AFD98D /* SearchViewController.swift */; };
-		60476FA1209C81C300AFD98D /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60476FA0209C81C300AFD98D /* TableViewController.swift */; };
+		60476FA1209C81C300AFD98D /* ProductsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60476FA0209C81C300AFD98D /* ProductsTableViewController.swift */; };
 		60476FA3209C81CF00AFD98D /* ProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60476FA2209C81CF00AFD98D /* ProductTableViewCell.swift */; };
 		60476FA5209C81DC00AFD98D /* ProductDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60476FA4209C81DC00AFD98D /* ProductDetailsViewController.swift */; };
 		604D9F9B20A3299F00C69A2F /* HelperParse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604D9F9A20A3299F00C69A2F /* HelperParse.swift */; };
@@ -23,6 +23,8 @@
 		60CE1A59209C810700BD5F21 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CE1A58209C810700BD5F21 /* Extensions.swift */; };
 		C91E79D220A9BD620074DEAF /* ImageSliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91E79D120A9BD620074DEAF /* ImageSliderViewController.swift */; };
 		C91E79DE20AAEC720074DEAF /* EmagRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91E79DD20AAEC720074DEAF /* EmagRequest.swift */; };
+		C91E79E220AC57910074DEAF /* ProductCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91E79E120AC57910074DEAF /* ProductCellDelegate.swift */; };
+		C91E79E420AC57F50074DEAF /* ProductCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91E79E320AC57F50074DEAF /* ProductCellProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,7 +32,7 @@
 		42D9BA5D5226856561C851CB /* Pods-eMagApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eMagApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-eMagApp/Pods-eMagApp.release.xcconfig"; sourceTree = "<group>"; };
 		4EA5695841F404BAE91446E7 /* Pods_eMagApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_eMagApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		60476F9E209C81B300AFD98D /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
-		60476FA0209C81C300AFD98D /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		60476FA0209C81C300AFD98D /* ProductsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductsTableViewController.swift; sourceTree = "<group>"; };
 		60476FA2209C81CF00AFD98D /* ProductTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductTableViewCell.swift; sourceTree = "<group>"; };
 		60476FA4209C81DC00AFD98D /* ProductDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDetailsViewController.swift; sourceTree = "<group>"; };
 		604D9F9A20A3299F00C69A2F /* HelperParse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperParse.swift; sourceTree = "<group>"; };
@@ -46,6 +48,8 @@
 		60CE1A58209C810700BD5F21 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		C91E79D120A9BD620074DEAF /* ImageSliderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSliderViewController.swift; sourceTree = "<group>"; };
 		C91E79DD20AAEC720074DEAF /* EmagRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmagRequest.swift; sourceTree = "<group>"; };
+		C91E79E120AC57910074DEAF /* ProductCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCellDelegate.swift; sourceTree = "<group>"; };
+		C91E79E320AC57F50074DEAF /* ProductCellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCellProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,7 +85,8 @@
 			isa = PBXGroup;
 			children = (
 				60476F9E209C81B300AFD98D /* SearchViewController.swift */,
-				60476FA0209C81C300AFD98D /* TableViewController.swift */,
+				60476FA0209C81C300AFD98D /* ProductsTableViewController.swift */,
+				C91E79E120AC57910074DEAF /* ProductCellDelegate.swift */,
 				60476FA4209C81DC00AFD98D /* ProductDetailsViewController.swift */,
 				C91E79D120A9BD620074DEAF /* ImageSliderViewController.swift */,
 			);
@@ -109,7 +114,6 @@
 		60A010692090755D00EAE5B1 /* eMagApp */ = {
 			isa = PBXGroup;
 			children = (
-				C91E79D820AAD7430074DEAF /* New Group */,
 				C91E79D520A9CCCD0074DEAF /* Scraper */,
 				60A0106E2090755D00EAE5B1 /* Main.storyboard */,
 				60A010762090755E00EAE5B1 /* Info.plist */,
@@ -124,6 +128,7 @@
 		60A0107C209078C600EAE5B1 /* Support files */ = {
 			isa = PBXGroup;
 			children = (
+				C91E79E320AC57F50074DEAF /* ProductCellProtocol.swift */,
 				60CE1A58209C810700BD5F21 /* Extensions.swift */,
 				604D9F9C20A32A4800C69A2F /* Constants.swift */,
 				60A0106A2090755D00EAE5B1 /* AppDelegate.swift */,
@@ -149,13 +154,6 @@
 				604D9F9A20A3299F00C69A2F /* HelperParse.swift */,
 			);
 			name = Scraper;
-			sourceTree = "<group>";
-		};
-		C91E79D820AAD7430074DEAF /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "New Group";
 			sourceTree = "<group>";
 		};
 		DE0D2956470F48925A81BB67 /* Frameworks */ = {
@@ -281,12 +279,14 @@
 				C91E79DE20AAEC720074DEAF /* EmagRequest.swift in Sources */,
 				60476F9F209C81B300AFD98D /* SearchViewController.swift in Sources */,
 				60476FA3209C81CF00AFD98D /* ProductTableViewCell.swift in Sources */,
-				60476FA1209C81C300AFD98D /* TableViewController.swift in Sources */,
+				60476FA1209C81C300AFD98D /* ProductsTableViewController.swift in Sources */,
 				60CE1A59209C810700BD5F21 /* Extensions.swift in Sources */,
 				604D9F9B20A3299F00C69A2F /* HelperParse.swift in Sources */,
 				60A0106B2090755D00EAE5B1 /* AppDelegate.swift in Sources */,
+				C91E79E420AC57F50074DEAF /* ProductCellProtocol.swift in Sources */,
 				60CE1A57209C80EF00BD5F21 /* ProductDetails.swift in Sources */,
 				60476FA5209C81DC00AFD98D /* ProductDetailsViewController.swift in Sources */,
+				C91E79E220AC57910074DEAF /* ProductCellDelegate.swift in Sources */,
 				60CE1A55209C80E400BD5F21 /* Product.swift in Sources */,
 				604D9F9D20A32A4800C69A2F /* Constants.swift in Sources */,
 				C91E79D220A9BD620074DEAF /* ImageSliderViewController.swift in Sources */,

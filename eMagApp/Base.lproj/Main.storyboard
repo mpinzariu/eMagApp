@@ -82,10 +82,10 @@
             </objects>
             <point key="canvasLocation" x="1816.8" y="132.68365817091455"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Products Table View Controller-->
         <scene sceneID="bnj-vh-esn">
             <objects>
-                <tableViewController id="vxI-ex-18Z" customClass="TableViewController" customModule="eMagApp" sceneMemberID="viewController">
+                <tableViewController id="vxI-ex-18Z" customClass="ProductsTableViewController" customModule="eMagApp" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="hV6-V6-ZpH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

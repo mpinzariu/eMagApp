@@ -35,7 +35,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {        
         if segue.identifier == idSegueToResults,
             let navigationController = segue.destination as? UINavigationController,
-            let tableViewController = navigationController.viewControllers.first as? TableViewController
+            let tableViewController = navigationController.viewControllers.first as? ProductsTableViewController
         {
             tableViewController.searchText = searchTextField.text
         }

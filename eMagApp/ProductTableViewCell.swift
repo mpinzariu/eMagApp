@@ -10,46 +10,23 @@ import UIKit
 
 class ProductTableViewCell: UITableViewCell {
 
-    // TODO: ViewController.
+    //MARK: - Properties
+    var delegate: ProductCellProtocol?
     @IBOutlet weak var productNameLabel: UILabel!
     @IBOutlet weak var productPriceLabel: UILabel!
     @IBOutlet weak var productImageView: UIImageView!
     
     private var activityIndicatorView: UIActivityIndicatorView!
     
-    weak var product: Product? {
-        didSet {            
-            updateUI()
-        }
-    }
-    
+    // MARK: - View Behavior
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        
         setupActivityIndicator()
-        
         activityIndicatorView.startAnimating()
     }
     
-    private func updateUI() {
-        if product != nil {
-            let onTap = UITapGestureRecognizer(target: self, action: #selector(launchSegueToImages))
-            productImageView.addGestureRecognizer(onTap)
-            productImageView.loadImageUsingUrlString(url: product!.smallImageURL!)
-
-            productNameLabel?.text = product?.name
-            productPriceLabel?.text = product?.priceString
-            
-            activityIndicatorView.stopAnimating()
-        } else {
-            resetValues()
-        }
-    }
-    
-    @objc
-    private func launchSegueToImages() {
-        //print("!!image tapped!!!")
-        //performSegue(withIdentifier: "ShowImageSlider", sender: self)
+    func stopAnimating() {
+        activityIndicatorView.stopAnimating()
     }
     
     private func setupActivityIndicator() {
@@ -59,9 +36,4 @@ class ProductTableViewCell: UITableViewCell {
         addSubview(activityIndicatorView)
     }
     
-    private func resetValues() {
-        productImageView?.image = nil
-        productNameLabel?.text = nil
-        productPriceLabel?.text = nil
-    }
 }
