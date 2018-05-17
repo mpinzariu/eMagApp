@@ -9,7 +9,7 @@
 import UIKit
 import Foundation
 
-class ProductCellDelegate : UIViewController, ProductCellProtocol  {
+class ProductCellDelegate : ProductCellProtocol  {
     
     private var model: Product?
     private var onTapAction: ( (_ : Product) -> Void)?
@@ -17,7 +17,6 @@ class ProductCellDelegate : UIViewController, ProductCellProtocol  {
     func updateUI(_ cell: ProductTableViewCell, _ product: Product?
         , _ onTap:  @escaping  (Product) -> Void) {
         model = product
-        view = cell
         onTapAction = onTap
         if product != nil {
             let onTap = UITapGestureRecognizer(target: self, action: #selector(execTap))
@@ -37,7 +36,6 @@ class ProductCellDelegate : UIViewController, ProductCellProtocol  {
             onTapAction!(model!)
         }
     }
-    
     
     private func resetValues(cell: ProductTableViewCell) {
         cell.productImageView?.image = nil

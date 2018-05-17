@@ -17,8 +17,8 @@ class ImageSliderViewController: UIViewController {
     @IBOutlet weak var scrollImagesView: UIScrollView!
     var imageUrls: [URL]? {
         didSet {
-            DispatchQueue.main.async { [weak self] in
-                self?.updateUI()
+            DispatchQueue.main.async { // [weak self] in
+                self.updateUI()
             }
         }
     }

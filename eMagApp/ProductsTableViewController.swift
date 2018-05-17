@@ -73,7 +73,6 @@ class ProductsTableViewController: UITableViewController {
         if let productCell = cell as? ProductTableViewCell  {
             if productCell.delegate == nil {
                 productCell.delegate = ProductCellDelegate()
-                
                 productCell.delegate?.updateUI(productCell, product, launchSegueToImages(_:))
             }
         }
