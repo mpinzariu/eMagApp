@@ -11,7 +11,6 @@ import Foundation
 
 class ProductCellDelegate : UIViewController, ProductCellProtocol  {
     
-    
     private var model: Product?
     private var onTapAction: ( (_ : Product) -> Void)?
     

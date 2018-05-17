@@ -33,7 +33,7 @@ class ProductDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let button = makeEmagNavigationButton(touchAction: #selector(rightBarButtonItemTapped), customEdgeInset: UIEdgeInsetsMake(-1, 1, 1, -41))
+        let button = makeEmagNavigationButton(customEdgeInset: UIEdgeInsetsMake(-1, 1, 1, -41))
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: button)
         
         activityIndicatorView = makeActivityIndicator()
@@ -44,9 +44,6 @@ class ProductDetailsViewController: UIViewController {
         updateUI()
     }
     
-    @objc func rightBarButtonItemTapped(_ sender: UIBarButtonItem) {
-        dismiss(animated: true, completion: nil)
-    }
     
     private func updateUI() {
         if productDetails != nil {

@@ -10,6 +10,8 @@ import UIKit
 
 class ProductsTableViewController: UITableViewController {
     
+    // MARK: - Properties
+    
     private let cellIdentifier = "cell"
     private let productIdentifier = "Product"
     private let idSegueToDetails = "ShowProductDetails"
@@ -37,11 +39,54 @@ class ProductsTableViewController: UITableViewController {
         
         return nil
     }
+    // MARK: - Page Lifecycle
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        tableView.reloadData()
+        searchForProducts()
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView:
+            makeEmagNavigationButton(customEdgeInset: UIEdgeInsetsMake(-1, -50, 1, 1)))
+        
+        activityIndicatorView = makeActivityIndicator()
+        tableView.backgroundView = activityIndicatorView
+        
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
+        
+        tableView.separatorStyle = .none
+        activityIndicatorView.startAnimating()
+    }
+
+    // MARK : - TableView.
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return products.count
+    }
+
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: productIdentifier, for: indexPath)
+        let product: Product = products[indexPath.row]
+        
+        if let productCell = cell as? ProductTableViewCell  {
+            if productCell.delegate == nil {
+                productCell.delegate = ProductCellDelegate()
+                
+                productCell.delegate?.updateUI(productCell, product, launchSegueToImages(_:))
+            }
+        }
+        
+        return cell
+    }
+    
+    // MARK: - Load Products
     
     private func searchForProducts() {
         if let request = emagRequest() {
             lastEmagAPIRequest = request
-
+            
             tableView.separatorStyle = .none
             activityIndicatorView.startAnimating()
             
@@ -78,47 +123,6 @@ class ProductsTableViewController: UITableViewController {
         }
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        tableView.reloadData()
-        searchForProducts()
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView:
-            makeEmagNavigationButton(touchAction: #selector(leftBarButtonItemTapped),
-                                     customEdgeInset: UIEdgeInsetsMake(-1, -50, 1, 1)))
-        
-        activityIndicatorView = makeActivityIndicator()
-        tableView.backgroundView = activityIndicatorView
-        
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
-        
-        tableView.separatorStyle = .none
-        activityIndicatorView.startAnimating()
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return products.count
-    }
-
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: productIdentifier, for: indexPath)
-        let product: Product = products[indexPath.row]
-        
-        if let productCell = cell as? ProductTableViewCell  {
-            if productCell.delegate == nil {
-                productCell.delegate = ProductCellDelegate()
-                
-                productCell.delegate?.updateUI(productCell, product, launchSegueToImages(_:))
-            }
-        }
-        
-        return cell
-    }
-    
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
@@ -146,17 +150,7 @@ class ProductsTableViewController: UITableViewController {
         }
     }
     
-    
-//    @objc private func onImageTap() {
-//        //launchSegueToImages(model!)
-//    }
-    
     private func launchSegueToImages(_ product: Product) {
         performSegue(withIdentifier: idSegueToImages, sender: product)
-    }
-    
-    
-    @objc func leftBarButtonItemTapped() {
-        dismiss(animated: true, completion: nil)
     }
 }

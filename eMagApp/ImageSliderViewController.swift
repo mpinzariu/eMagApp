@@ -29,7 +29,7 @@ class ImageSliderViewController: UIViewController {
         super.viewDidLoad()
         
         // navigation
-        let btnGoToSearch = makeEmagNavigationButton(touchAction: #selector(onTapDismiss), customEdgeInset: UIEdgeInsetsMake(-1, 1, 1, -41))
+        let btnGoToSearch = makeEmagNavigationButton(customEdgeInset: UIEdgeInsetsMake(-1, 1, 1, -41))
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: btnGoToSearch)
         
         // activity
@@ -42,10 +42,6 @@ class ImageSliderViewController: UIViewController {
         if imageUrls != nil {
             updateUI()
         }
-    }
-    
-    @objc func onTapDismiss(){
-        dismiss(animated: true, completion: nil)
     }
     
     func updateUI() {

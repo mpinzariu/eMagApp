@@ -107,13 +107,17 @@ extension UIImageView {
 }
 
 extension UIViewController {
-    func makeEmagNavigationButton(touchAction: Selector, customEdgeInset: UIEdgeInsets) -> UIButton {
-        let buttonLeft = UIButton(type: .custom)
-        buttonLeft.setImage(UIImage(named: "logoEmag16"), for: .normal)
-        buttonLeft.addTarget(self, action: touchAction, for: .touchUpInside)
-        buttonLeft.frame = CGRect(x: 0, y: 0, width: 50, height: 31)
-        buttonLeft.imageEdgeInsets = customEdgeInset
-        return buttonLeft
+    func makeEmagNavigationButton(touchAction: Selector = #selector(onTapDismiss), customEdgeInset: UIEdgeInsets) -> UIButton {
+        let buttonEmagLogo = UIButton(type: .custom)
+        buttonEmagLogo.setImage(UIImage(named: "logoEmag16"), for: .normal)
+        buttonEmagLogo.addTarget(self, action: touchAction, for: .touchUpInside)
+        buttonEmagLogo.frame = CGRect(x: 0, y: 0, width: 50, height: 31)
+        buttonEmagLogo.imageEdgeInsets = customEdgeInset
+        return buttonEmagLogo
+    }
+    
+    @objc private func onTapDismiss(){
+        dismiss(animated: true, completion: nil)
     }
     
     func makeActivityIndicator() -> UIActivityIndicatorView {
@@ -122,6 +126,7 @@ extension UIViewController {
         activityIndicatorView.hidesWhenStopped = true
         return activityIndicatorView
     }
+    
 }
 
 public func log(_ whatToLog: String) {
