@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SearchViewController: UIViewController, UITextFieldDelegate {
+class SearchViewController: UIViewController {
 
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var searchButton: UIButton!
@@ -41,11 +41,14 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+}
+
+
+extension SearchViewController :  UITextFieldDelegate  {
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
-        
         performSegue(withIdentifier: idSegueToResults, sender: self)
-        
         return true
     }
 }

@@ -114,9 +114,9 @@
 		60A010692090755D00EAE5B1 /* eMagApp */ = {
 			isa = PBXGroup;
 			children = (
-				C91E79D520A9CCCD0074DEAF /* Scraper */,
 				60A0106E2090755D00EAE5B1 /* Main.storyboard */,
 				60A010762090755E00EAE5B1 /* Info.plist */,
+				C91E79D520A9CCCD0074DEAF /* Scraper */,
 				6041407B209C7FFF00390E03 /* Model */,
 				608E326F20A1739B00D8E06C /* Controller */,
 				6041407A209C7FD900390E03 /* Views */,

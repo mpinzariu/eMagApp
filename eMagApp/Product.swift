@@ -8,15 +8,14 @@
 
 import Foundation
 
-public class Product : Equatable { 
+public class Product { 
     var href: String
     var name: String
     var price: Double
     var priceString: String {
         return "\(self.price.format(".2")) Lei"
     }
-    
-    open var smallImageURL: URL?
+    var smallImageURL: URL?
     var productDetails: ProductDetails?
     
     init(_ href: String, _ name: String, _ price: Double, _ smallImageURL: URL?) {
@@ -38,13 +37,12 @@ public class Product : Equatable {
         
         self.init(href, name, price, smallImageURL)
     }
+}
+
+extension Product : Equatable {
     
     public static func == (left: Product, right: Product) -> Bool {
         return (left.href == right.href) && (left.name == right.name)
     }
     
-//    static func != (left: Product, right: Product) -> Bool {
-//        return !(left == right)
-//    }
 }
-

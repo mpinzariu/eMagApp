@@ -44,6 +44,7 @@ class ImageSliderViewController: UIViewController {
         }
     }
     
+    // MARK: - 
     func updateUI() {
         if scrollImagesView == nil {
             return

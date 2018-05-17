@@ -8,16 +8,11 @@
 import Foundation
 import SwiftSoup
 
-public class EmagRequest : Equatable {
+public class EmagRequest {
     
     private var requestValue: String?
     private var elementsFromSearch: Elements? = nil
     private var htmlValue: String? = ""
-    
-    // MARK: - Equatable
-    public static func == (lhs: EmagRequest, rhs: EmagRequest) -> Bool {
-        return lhs.requestValue == rhs.requestValue
-    }
     
     public init(search: String) {
         self.requestValue = search
@@ -117,3 +112,8 @@ public class EmagRequest : Equatable {
     }
 }
 
+extension EmagRequest : Equatable {
+    public static func == (lhs: EmagRequest, rhs: EmagRequest) -> Bool {
+        return lhs.requestValue == rhs.requestValue
+    }
+}
