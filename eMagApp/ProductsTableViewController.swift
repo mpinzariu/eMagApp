@@ -17,7 +17,8 @@ class ProductsTableViewController: UITableViewController {
     private let idSegueToDetails = "ShowProductDetails"
     private let idSegueToImages = "ShowImageSlider"
     
-    private var lastEmagAPIRequest: EmagRequest?
+    private var lastEmagProductRequest: EmagProductsRequest?
+    private var lastEmagDetailsRequest: EmagDetailsRequest?
     private var activityIndicatorView: UIActivityIndicatorView!
     private var products: [Product] = []
     
@@ -28,17 +29,18 @@ class ProductsTableViewController: UITableViewController {
         }
     }
 
-    private func emagRequest() -> EmagRequest? {
-        if lastEmagAPIRequest != nil {
-            return lastEmagAPIRequest
+    private func emagRequest() -> EmagProductsRequest? {
+        if lastEmagProductRequest != nil {
+            return lastEmagProductRequest
         }
         
         if let searchText = searchText, !searchText.isEmpty {
-            return EmagRequest(search: searchText)
+            return EmagProductsRequest(search: searchText)
         }
         
         return nil
     }
+    
     // MARK: - Page Lifecycle
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -84,7 +86,7 @@ class ProductsTableViewController: UITableViewController {
     
     private func searchForProducts() {
         if let request = emagRequest() {
-            lastEmagAPIRequest = request
+            lastEmagProductRequest = request
             
             tableView.separatorStyle = .none
             activityIndicatorView.startAnimating()
@@ -95,8 +97,7 @@ class ProductsTableViewController: UITableViewController {
         }
     }
     
-    private func asyncLoad(_ request: EmagRequest) {
-        self.lastEmagAPIRequest!.downloadHTML()
+    private func asyncLoad(_ request: EmagProductsRequest) {
         request.fetchProducts { [unowned self] newProduct in
             DispatchQueue.main.asyncAfter(deadline: .now(), execute: { [weak self] in
                 if self != nil {
@@ -107,7 +108,7 @@ class ProductsTableViewController: UITableViewController {
     }
     
     private func callbackUpdateView(_ request: EmagRequest, _ newProduct: Product) {
-        if let lastRequest = self.lastEmagAPIRequest, request == lastRequest {
+        if let lastRequest = self.lastEmagProductRequest, request == lastRequest {
             if !(self.products.contains(newProduct)) {
                 let index = self.products.count
                 self.products.insert(newProduct, at: index)
@@ -128,11 +129,12 @@ class ProductsTableViewController: UITableViewController {
         if let indexPath = tableView.indexPathForSelectedRow {
             let product = self.products[indexPath.row]
             if segue.identifier == idSegueToDetails,
-                let productDetalisViewController = segue.destination as? ProductDetailsViewController
+                let productDetailsViewController = segue.destination as? ProductDetailsViewController
             {
                 DispatchQueue.global(qos: .background).async {
-                    self.lastEmagAPIRequest!.setProductDetails(product: product)
-                    productDetalisViewController.productDetails = product.productDetails
+                    self.lastEmagDetailsRequest = EmagDetailsRequest(product: product)
+                    self.lastEmagDetailsRequest!.setProductDetails()
+                    productDetailsViewController.productDetails = product.productDetails
                 }
             }
         }
@@ -143,7 +145,8 @@ class ProductsTableViewController: UITableViewController {
         {
             DispatchQueue.global(qos: .background).async {
                 // get details; need only urls, but the overhead is minuscule.
-                self.lastEmagAPIRequest!.setProductDetails(product: product)
+                self.lastEmagDetailsRequest = EmagDetailsRequest(product: product)
+                self.lastEmagDetailsRequest!.setProductDetails()
                 imagesVC.imageUrls = product.productDetails?.largeImageUrls
             }
         }

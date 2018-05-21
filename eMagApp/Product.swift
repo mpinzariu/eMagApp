@@ -9,7 +9,7 @@
 import Foundation
 
 public class Product { 
-    var href: String
+    var detailsUrl: String
     var name: String
     var price: Double
     var priceString: String {
@@ -19,7 +19,7 @@ public class Product {
     var productDetails: ProductDetails?
     
     init(_ href: String, _ name: String, _ price: Double, _ smallImageURL: URL?) {
-        self.href = href
+        self.detailsUrl = href
         self.name = name
         self.price = price
         self.smallImageURL = smallImageURL
@@ -42,7 +42,7 @@ public class Product {
 extension Product : Equatable {
     
     public static func == (left: Product, right: Product) -> Bool {
-        return (left.href == right.href) && (left.name == right.name)
+        return (left.detailsUrl == right.detailsUrl) && (left.name == right.name)
     }
     
 }

@@ -26,9 +26,6 @@ struct Cache {
 
 // TODO:EM: rename to lowercase
 struct EmagKey {
-    static let ByProduct = ""
-    static let Search = "search/"
-    static let ProductClass = ".card-item"
     
     struct SearchMetadata {
         static let ProductClass = ".card-item"
