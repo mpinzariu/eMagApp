@@ -16,9 +16,10 @@ public class ProductDetails {
     var largeImageURL: URL?
     var largeImageUrls: [URL]?
     
-    weak var product: Product? = nil
+    unowned let product: Product
     
-    init(description: String, specs: String, availability: String, largeImageURL: String?, largeImageURLs: [String]?) {
+    init(product: Product, description: String, specs: String, availability: String, largeImageURL: String?, largeImageURLs: [String]?) {
+        self.product = product
         self.descriptionProduct = description
         self.specs = specs
         self.availability = availability

@@ -12,7 +12,6 @@
 		60476FA1209C81C300AFD98D /* ProductsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60476FA0209C81C300AFD98D /* ProductsTableViewController.swift */; };
 		60476FA3209C81CF00AFD98D /* ProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60476FA2209C81CF00AFD98D /* ProductTableViewCell.swift */; };
 		60476FA5209C81DC00AFD98D /* ProductDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60476FA4209C81DC00AFD98D /* ProductDetailsViewController.swift */; };
-		604D9F9B20A3299F00C69A2F /* HelperParse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604D9F9A20A3299F00C69A2F /* HelperParse.swift */; };
 		604D9F9D20A32A4800C69A2F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604D9F9C20A32A4800C69A2F /* Constants.swift */; };
 		60A0106B2090755D00EAE5B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A0106A2090755D00EAE5B1 /* AppDelegate.swift */; };
 		60A010702090755D00EAE5B1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60A0106E2090755D00EAE5B1 /* Main.storyboard */; };
@@ -21,22 +20,28 @@
 		60CE1A55209C80E400BD5F21 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CE1A54209C80E400BD5F21 /* Product.swift */; };
 		60CE1A57209C80EF00BD5F21 /* ProductDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CE1A56209C80EF00BD5F21 /* ProductDetails.swift */; };
 		60CE1A59209C810700BD5F21 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CE1A58209C810700BD5F21 /* Log.swift */; };
+		C90B070520B413BD004CD740 /* ProductTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90B070420B413BD004CD740 /* ProductTesting.swift */; };
 		C914419920AD7D8600706979 /* Double+format.swift in Sources */ = {isa = PBXBuildFile; fileRef = C914419820AD7D8600706979 /* Double+format.swift */; };
 		C914419B20AD7DE000706979 /* UIViewController+nav.swift in Sources */ = {isa = PBXBuildFile; fileRef = C914419A20AD7DE000706979 /* UIViewController+nav.swift */; };
 		C914419D20AD7E1700706979 /* UIImageView+loadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C914419C20AD7E1700706979 /* UIImageView+loadImage.swift */; };
-		C91441A520ADB71600706979 /* eMagAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91441A420ADB71600706979 /* eMagAppTests.swift */; };
-		C91441AD20ADB95700706979 /* ProductTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91441AC20ADB95700706979 /* ProductTesting.swift */; };
-		C91441B020ADBB8A00706979 /* UrlHtmlDictionary.txt in Resources */ = {isa = PBXBuildFile; fileRef = C91441AF20ADBB8A00706979 /* UrlHtmlDictionary.txt */; };
+		C91441AD20ADB95700706979 /* ProductScraperTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91441AC20ADB95700706979 /* ProductScraperTesting.swift */; };
 		C91441B320ADBDC100706979 /* TestsProductScraping.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91441B220ADBDC100706979 /* TestsProductScraping.swift */; };
 		C91441B820AF10C900706979 /* TestUrlConstruction.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91441B720AF10C900706979 /* TestUrlConstruction.swift */; };
 		C91441BB20B2B3BC00706979 /* HtmlRetriever.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91441BA20B2B3BC00706979 /* HtmlRetriever.swift */; };
 		C91441BD20B2B41A00706979 /* NetworkAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91441BC20B2B41A00706979 /* NetworkAccess.swift */; };
-		C91441BF20B2B45300706979 /* Factoy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91441BE20B2B45300706979 /* Factoy.swift */; };
+		C91441BF20B2B45300706979 /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91441BE20B2B45300706979 /* Factory.swift */; };
 		C91441C120B2B47800706979 /* EmagProductsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91441C020B2B47800706979 /* EmagProductsRequest.swift */; };
 		C91441C320B2B49A00706979 /* EmagDetailsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91441C220B2B49A00706979 /* EmagDetailsRequest.swift */; };
-		C91441C520B2B55F00706979 /* Mocked.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91441C420B2B55F00706979 /* Mocked.swift */; };
+		C91441C520B2B55F00706979 /* MockedFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91441C420B2B55F00706979 /* MockedFactory.swift */; };
 		C91441C920B2BA8F00706979 /* String+attributed.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91441C820B2BA8F00706979 /* String+attributed.swift */; };
 		C91441CB20B2BB3D00706979 /* UIViewController+alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91441CA20B2BB3D00706979 /* UIViewController+alert.swift */; };
+		C91441D120B2CA7400706979 /* 0.htm in Resources */ = {isa = PBXBuildFile; fileRef = C91441D020B2CA7400706979 /* 0.htm */; };
+		C91441D520B2D95D00706979 /* 1.htm in Resources */ = {isa = PBXBuildFile; fileRef = C91441D420B2D95D00706979 /* 1.htm */; };
+		C91441D720B2D99300706979 /* 2.htm in Resources */ = {isa = PBXBuildFile; fileRef = C91441D620B2D99300706979 /* 2.htm */; };
+		C91441D820B3097100706979 /* apple.htm in Resources */ = {isa = PBXBuildFile; fileRef = C91441AF20ADBB8A00706979 /* apple.htm */; };
+		C91441DA20B3EFC000706979 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91441D920B3EFC000706979 /* Helper.swift */; };
+		C91441DC20B3F9B200706979 /* TestConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91441DB20B3F9B200706979 /* TestConstants.swift */; };
+		C91441DE20B4053700706979 /* ProductDetailsTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91441DD20B4053700706979 /* ProductDetailsTesting.swift */; };
 		C91E79D220A9BD620074DEAF /* ImageSliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91E79D120A9BD620074DEAF /* ImageSliderViewController.swift */; };
 		C91E79DE20AAEC720074DEAF /* EmagRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91E79DD20AAEC720074DEAF /* EmagRequest.swift */; };
 		C91E79E220AC57910074DEAF /* ProductCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91E79E120AC57910074DEAF /* ProductCellDelegate.swift */; };
@@ -61,7 +66,6 @@
 		60476FA0209C81C300AFD98D /* ProductsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductsTableViewController.swift; sourceTree = "<group>"; };
 		60476FA2209C81CF00AFD98D /* ProductTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductTableViewCell.swift; sourceTree = "<group>"; };
 		60476FA4209C81DC00AFD98D /* ProductDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDetailsViewController.swift; sourceTree = "<group>"; };
-		604D9F9A20A3299F00C69A2F /* HelperParse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperParse.swift; sourceTree = "<group>"; };
 		604D9F9C20A32A4800C69A2F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		60A010672090755D00EAE5B1 /* eMagApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eMagApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60A0106A2090755D00EAE5B1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -72,24 +76,30 @@
 		60CE1A54209C80E400BD5F21 /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		60CE1A56209C80EF00BD5F21 /* ProductDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDetails.swift; sourceTree = "<group>"; };
 		60CE1A58209C810700BD5F21 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
+		C90B070420B413BD004CD740 /* ProductTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTesting.swift; sourceTree = "<group>"; };
 		C914419820AD7D8600706979 /* Double+format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+format.swift"; sourceTree = "<group>"; };
 		C914419A20AD7DE000706979 /* UIViewController+nav.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+nav.swift"; sourceTree = "<group>"; };
 		C914419C20AD7E1700706979 /* UIImageView+loadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+loadImage.swift"; sourceTree = "<group>"; };
 		C91441A220ADB71600706979 /* eMagAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = eMagAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C91441A420ADB71600706979 /* eMagAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = eMagAppTests.swift; sourceTree = "<group>"; };
 		C91441A620ADB71600706979 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C91441AC20ADB95700706979 /* ProductTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTesting.swift; sourceTree = "<group>"; };
-		C91441AF20ADBB8A00706979 /* UrlHtmlDictionary.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = UrlHtmlDictionary.txt; sourceTree = "<group>"; };
+		C91441AC20ADB95700706979 /* ProductScraperTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductScraperTesting.swift; sourceTree = "<group>"; };
+		C91441AF20ADBB8A00706979 /* apple.htm */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = apple.htm; sourceTree = "<group>"; };
 		C91441B220ADBDC100706979 /* TestsProductScraping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestsProductScraping.swift; sourceTree = "<group>"; };
 		C91441B720AF10C900706979 /* TestUrlConstruction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestUrlConstruction.swift; sourceTree = "<group>"; };
 		C91441BA20B2B3BC00706979 /* HtmlRetriever.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HtmlRetriever.swift; sourceTree = "<group>"; };
 		C91441BC20B2B41A00706979 /* NetworkAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAccess.swift; sourceTree = "<group>"; };
-		C91441BE20B2B45300706979 /* Factoy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Factoy.swift; sourceTree = "<group>"; };
+		C91441BE20B2B45300706979 /* Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Factory.swift; sourceTree = "<group>"; };
 		C91441C020B2B47800706979 /* EmagProductsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmagProductsRequest.swift; sourceTree = "<group>"; };
 		C91441C220B2B49A00706979 /* EmagDetailsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmagDetailsRequest.swift; sourceTree = "<group>"; };
-		C91441C420B2B55F00706979 /* Mocked.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mocked.swift; sourceTree = "<group>"; };
+		C91441C420B2B55F00706979 /* MockedFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockedFactory.swift; sourceTree = "<group>"; };
 		C91441C820B2BA8F00706979 /* String+attributed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+attributed.swift"; sourceTree = "<group>"; };
 		C91441CA20B2BB3D00706979 /* UIViewController+alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+alert.swift"; sourceTree = "<group>"; };
+		C91441D020B2CA7400706979 /* 0.htm */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = 0.htm; sourceTree = "<group>"; };
+		C91441D420B2D95D00706979 /* 1.htm */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = 1.htm; sourceTree = "<group>"; };
+		C91441D620B2D99300706979 /* 2.htm */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = 2.htm; sourceTree = "<group>"; };
+		C91441D920B3EFC000706979 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		C91441DB20B3F9B200706979 /* TestConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestConstants.swift; sourceTree = "<group>"; };
+		C91441DD20B4053700706979 /* ProductDetailsTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsTesting.swift; sourceTree = "<group>"; };
 		C91E79D120A9BD620074DEAF /* ImageSliderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSliderViewController.swift; sourceTree = "<group>"; };
 		C91E79DD20AAEC720074DEAF /* EmagRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmagRequest.swift; sourceTree = "<group>"; };
 		C91E79E120AC57910074DEAF /* ProductCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCellDelegate.swift; sourceTree = "<group>"; };
@@ -174,7 +184,7 @@
 				C91441B920B2B38B00706979 /* NetworkAccess */,
 				C914419720AD7C2200706979 /* Protocols */,
 				60A0106E2090755D00EAE5B1 /* Main.storyboard */,
-				C91441BE20B2B45300706979 /* Factoy.swift */,
+				C91441BE20B2B45300706979 /* Factory.swift */,
 				60A010762090755E00EAE5B1 /* Info.plist */,
 				C91E79D520A9CCCD0074DEAF /* Scraper */,
 				6041407B209C7FFF00390E03 /* Model */,
@@ -217,21 +227,22 @@
 			isa = PBXGroup;
 			children = (
 				C91441C620B2B68300706979 /* Tests */,
-				C91441AE20ADBB4100706979 /* Data */,
+				C91441AE20ADBB4100706979 /* Resources */,
 				C91441C720B2B69900706979 /* Mocking */,
-				C91441A420ADB71600706979 /* eMagAppTests.swift */,
 				C91441A620ADB71600706979 /* Info.plist */,
-				C91441AC20ADB95700706979 /* ProductTesting.swift */,
 			);
 			path = eMagAppTests;
 			sourceTree = "<group>";
 		};
-		C91441AE20ADBB4100706979 /* Data */ = {
+		C91441AE20ADBB4100706979 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				C91441AF20ADBB8A00706979 /* UrlHtmlDictionary.txt */,
+				C91441AF20ADBB8A00706979 /* apple.htm */,
+				C91441D020B2CA7400706979 /* 0.htm */,
+				C91441D420B2D95D00706979 /* 1.htm */,
+				C91441D620B2D99300706979 /* 2.htm */,
 			);
-			path = Data;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		C91441B120ADBD7A00706979 /* ScrapingAlgorithmIntegrity */ = {
@@ -246,6 +257,9 @@
 			isa = PBXGroup;
 			children = (
 				C91441B720AF10C900706979 /* TestUrlConstruction.swift */,
+				C91441AC20ADB95700706979 /* ProductScraperTesting.swift */,
+				C90B070420B413BD004CD740 /* ProductTesting.swift */,
+				C91441DD20B4053700706979 /* ProductDetailsTesting.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -263,6 +277,8 @@
 			children = (
 				C91441B120ADBD7A00706979 /* ScrapingAlgorithmIntegrity */,
 				C91441B620AF10AC00706979 /* Model */,
+				C91441D920B3EFC000706979 /* Helper.swift */,
+				C91441DB20B3F9B200706979 /* TestConstants.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -270,7 +286,7 @@
 		C91441C720B2B69900706979 /* Mocking */ = {
 			isa = PBXGroup;
 			children = (
-				C91441C420B2B55F00706979 /* Mocked.swift */,
+				C91441C420B2B55F00706979 /* MockedFactory.swift */,
 			);
 			path = Mocking;
 			sourceTree = "<group>";
@@ -280,7 +296,6 @@
 			children = (
 				604D9F9C20A32A4800C69A2F /* Constants.swift */,
 				C91E79DD20AAEC720074DEAF /* EmagRequest.swift */,
-				604D9F9A20A3299F00C69A2F /* HelperParse.swift */,
 				C91441C020B2B47800706979 /* EmagProductsRequest.swift */,
 				C91441C220B2B49A00706979 /* EmagDetailsRequest.swift */,
 				C91441C820B2BA8F00706979 /* String+attributed.swift */,
@@ -390,7 +405,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C91441B020ADBB8A00706979 /* UrlHtmlDictionary.txt in Resources */,
+				C91441D520B2D95D00706979 /* 1.htm in Resources */,
+				C91441D720B2D99300706979 /* 2.htm in Resources */,
+				C91441D820B3097100706979 /* apple.htm in Resources */,
+				C91441D120B2CA7400706979 /* 0.htm in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -450,8 +468,7 @@
 				C91441BB20B2B3BC00706979 /* HtmlRetriever.swift in Sources */,
 				60CE1A59209C810700BD5F21 /* Log.swift in Sources */,
 				C914419D20AD7E1700706979 /* UIImageView+loadImage.swift in Sources */,
-				604D9F9B20A3299F00C69A2F /* HelperParse.swift in Sources */,
-				C91441BF20B2B45300706979 /* Factoy.swift in Sources */,
+				C91441BF20B2B45300706979 /* Factory.swift in Sources */,
 				60A0106B2090755D00EAE5B1 /* AppDelegate.swift in Sources */,
 				C91E79E420AC57F50074DEAF /* ProductCellProtocol.swift in Sources */,
 				C914419920AD7D8600706979 /* Double+format.swift in Sources */,
@@ -471,11 +488,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C91441C520B2B55F00706979 /* Mocked.swift in Sources */,
-				C91441AD20ADB95700706979 /* ProductTesting.swift in Sources */,
+				C90B070520B413BD004CD740 /* ProductTesting.swift in Sources */,
+				C91441C520B2B55F00706979 /* MockedFactory.swift in Sources */,
+				C91441DC20B3F9B200706979 /* TestConstants.swift in Sources */,
+				C91441AD20ADB95700706979 /* ProductScraperTesting.swift in Sources */,
+				C91441DE20B4053700706979 /* ProductDetailsTesting.swift in Sources */,
+				C91441DA20B3EFC000706979 /* Helper.swift in Sources */,
 				C91441B320ADBDC100706979 /* TestsProductScraping.swift in Sources */,
 				C91441B820AF10C900706979 /* TestUrlConstruction.swift in Sources */,
-				C91441A520ADB71600706979 /* eMagAppTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

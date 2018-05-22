@@ -42,7 +42,7 @@ public class Product {
 extension Product : Equatable {
     
     public static func == (left: Product, right: Product) -> Bool {
-        return (left.detailsUrl == right.detailsUrl) && (left.name == right.name)
+        return left.detailsUrl.caseInsensitiveCompare(right.detailsUrl) == ComparisonResult.orderedSame && (left.name == right.name)
     }
     
 }

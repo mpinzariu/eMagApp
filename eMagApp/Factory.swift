@@ -8,5 +8,6 @@
 
 
 internal class Factory {
+    
     var htmlRetriever: HtmlRetriever { get { return NetworkAccess() } }
 }

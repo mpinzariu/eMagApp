@@ -44,17 +44,14 @@ class ProductDetailsViewController: UIViewController {
         updateUI()
     }
     
-    
     private func updateUI() {
         if productDetails != nil {
             let onTap = UITapGestureRecognizer(target: self, action: #selector(launchSegueToImages))
             productLargeImageView.loadImageUsingUrlString(url: productDetails!.largeImageURL!)
             productLargeImageView.addGestureRecognizer(onTap)
             
-            if productDetails!.product != nil {
-                productNameLabel.text = productDetails!.product!.name
-                productPriceLabel.text = productDetails!.product!.priceString
-            }
+            productNameLabel.text = productDetails!.product.name
+            productPriceLabel.text = productDetails!.product.priceString
             
             productAvailabilityLabel.text = productDetails!.availability
             productDescriptionLabel.attributedText = productDetails!.descriptionProduct?.html2Attributed
