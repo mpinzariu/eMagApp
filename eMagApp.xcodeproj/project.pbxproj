@@ -46,6 +46,7 @@
 		C91E79DE20AAEC720074DEAF /* EmagRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91E79DD20AAEC720074DEAF /* EmagRequest.swift */; };
 		C91E79E220AC57910074DEAF /* ProductCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91E79E120AC57910074DEAF /* ProductCellDelegate.swift */; };
 		C91E79E420AC57F50074DEAF /* ProductCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91E79E320AC57F50074DEAF /* ProductCellProtocol.swift */; };
+		C9348BA320B44EF20073E0E8 /* DetailsScraperTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9348BA220B44EF20073E0E8 /* DetailsScraperTesting.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +105,7 @@
 		C91E79DD20AAEC720074DEAF /* EmagRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmagRequest.swift; sourceTree = "<group>"; };
 		C91E79E120AC57910074DEAF /* ProductCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCellDelegate.swift; sourceTree = "<group>"; };
 		C91E79E320AC57F50074DEAF /* ProductCellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCellProtocol.swift; sourceTree = "<group>"; };
+		C9348BA220B44EF20073E0E8 /* DetailsScraperTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsScraperTesting.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -259,6 +261,7 @@
 				C91441B720AF10C900706979 /* TestUrlConstruction.swift */,
 				C91441AC20ADB95700706979 /* ProductScraperTesting.swift */,
 				C90B070420B413BD004CD740 /* ProductTesting.swift */,
+				C9348BA220B44EF20073E0E8 /* DetailsScraperTesting.swift */,
 				C91441DD20B4053700706979 /* ProductDetailsTesting.swift */,
 			);
 			path = Model;
@@ -494,6 +497,7 @@
 				C91441AD20ADB95700706979 /* ProductScraperTesting.swift in Sources */,
 				C91441DE20B4053700706979 /* ProductDetailsTesting.swift in Sources */,
 				C91441DA20B3EFC000706979 /* Helper.swift in Sources */,
+				C9348BA320B44EF20073E0E8 /* DetailsScraperTesting.swift in Sources */,
 				C91441B320ADBDC100706979 /* TestsProductScraping.swift in Sources */,
 				C91441B820AF10C900706979 /* TestUrlConstruction.swift in Sources */,
 			);

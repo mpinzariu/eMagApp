@@ -45,7 +45,6 @@ class ProductScraperTesting: XCTestCase {
     func testProductHasAllFields() {
         var prod: Product? = nil
         ProductHelper.getAllProductsToClosure(sut) { product in
-            //print(" >> Prod ID = '\(product.detailsUrl)'")
             if product.detailsUrl == TestConstants.prodUrlFirst {
                 prod = product
             }

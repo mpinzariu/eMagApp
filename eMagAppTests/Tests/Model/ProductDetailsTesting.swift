@@ -6,50 +6,49 @@
 //  Copyright © 2018 Pinzariu Marian. All rights reserved.
 //
 
+// no longer viable: EmagDetails uses Product from init, and reads details from HtmlProvider... rethink!
+
+
 import XCTest
 @testable import eMagApp
 
 /**
- Test suite checking that Product Details are built correctly from the scraped HTML.
- Bypasses internet acess, and uses cache - use MockedFactory for retrieving HTML.
+ Test suite checking Details. Doesn't use eMagScraper.
  */
 class ProductDetailsTesting: XCTestCase {
-    
-    private var product: Product!
-    private var sut: EmagDetailsRequest!
-    
-    override func setUp() {
-        super.setUp()
-        let parentSut = EmagProductsRequest(search: TestConstants.searchStringApple, MockedFactory().htmlRetriever)
-        ProductHelper.getAllProductsToClosure(parentSut) { p in
-            if p.detailsUrl == TestConstants.prodUrlFirst {
-                self.product = p
-            }
-        }
-        XCTAssertNotNil(product, "Stopping Details Unit Testing: could not retrieve parent Product.")
-        sut = EmagDetailsRequest(product: product, MockedFactory().htmlRetriever)
-    }
-    
-    override func tearDown() {
-        sut = nil
-        product = nil
-        super.tearDown()
-    }
-    
-    /// SUT instantiation has executed, product is created and details are not (yet).
-    func testHasData() {
-        XCTAssertNotNil(sut)
-        XCTAssertNotNil(product)
-        XCTAssertNil(product.productDetails)
-    }
-    
-    /// details for specified product are retrieved
-    func testCreatingDetails() {
+
+    func testImageUrls_base() {
+        let prod = makeProduct(TestConstants.prodUrlFirst)
+        let sut = EmagDetailsRequest(product: prod, MockedFactory().htmlRetriever)
+        
         sut.setProductDetails()
-        XCTAssertNotNil(product.productDetails)
+        
+        if let details = prod.productDetails {
+            XCTAssertNotNil(details.largeImageURL)
+            XCTAssertNotNil(details.largeImageUrls)
+            
+        } else {
+            XCTFail("Produc Details have not been set!")
+        }
+    }
+
+    func testDetailsWithNoImageUrls() {
+        let prod = makeProduct(TestConstants.prodUrlSecond)
+        let sut = EmagDetailsRequest(product: prod, MockedFactory().htmlRetriever)
+        
+        sut.setProductDetails()
+        
+        if let details = prod.productDetails {
+            XCTAssertNil(details.largeImageURL)
+            XCTAssertNotNil(details.largeImageUrls)
+            XCTAssertEqual(0, details.largeImageUrls?.count)
+        } else {
+            XCTFail("Product Details have not been set!")
+        }
     }
     
-    // fiddling with imageURLs: nil list, nil single url, etc.
-    
-    
+    /// make a Product for use in details.
+    private func makeProduct(_ detailsUrl: String) -> Product {
+        return Product(detailsUrl, "test product for Details", 13.33, URL(string: "/img"))
+    }
 }

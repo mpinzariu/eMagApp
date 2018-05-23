@@ -25,11 +25,6 @@ public class ProductDetails {
         self.availability = availability
         self.largeImageUrls = convert(largeImageURLs)
         self.largeImageURL = convert(largeImageURL)
-        
-        // if no 'main' image was provided, pick the first from list (if any)
-        if largeImageURL == nil && largeImageURLs != nil && largeImageURLs!.count > 0 {
-            self.largeImageURL = URL(string: largeImageURLs![0])
-        }
     }
     
     private func convert(_ urlText: [String]? ) -> [URL]? {
