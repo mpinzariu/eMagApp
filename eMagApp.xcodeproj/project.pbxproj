@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		436982509A15900C45AC82AD /* Pods_eMagApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EA5695841F404BAE91446E7 /* Pods_eMagApp.framework */; };
+		601DDEA294828B2F36A27139 /* Pods_eMagAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99D89561411769DB90BB01FE /* Pods_eMagAppTests.framework */; };
 		60476F9F209C81B300AFD98D /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60476F9E209C81B300AFD98D /* SearchViewController.swift */; };
 		60476FA1209C81C300AFD98D /* ProductsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60476FA0209C81C300AFD98D /* ProductsTableViewController.swift */; };
 		60476FA3209C81CF00AFD98D /* ProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60476FA2209C81CF00AFD98D /* ProductTableViewCell.swift */; };
@@ -47,6 +48,7 @@
 		C91E79E220AC57910074DEAF /* ProductCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91E79E120AC57910074DEAF /* ProductCellDelegate.swift */; };
 		C91E79E420AC57F50074DEAF /* ProductCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91E79E320AC57F50074DEAF /* ProductCellProtocol.swift */; };
 		C9348BA320B44EF20073E0E8 /* DetailsScraperTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9348BA220B44EF20073E0E8 /* DetailsScraperTesting.swift */; };
+		C9D5BD4220B5541A00C1D845 /* eMagAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D5BD4120B5541A00C1D845 /* eMagAppUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,9 +59,17 @@
 			remoteGlobalIDString = 60A010662090755D00EAE5B1;
 			remoteInfo = eMagApp;
 		};
+		C9D5BD4420B5541A00C1D845 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 60A0105F2090755D00EAE5B1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 60A010662090755D00EAE5B1;
+			remoteInfo = eMagApp;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		078979008847731C15006824 /* Pods-eMagAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eMagAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-eMagAppTests/Pods-eMagAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		367FC2F533C8BD0F4F336A42 /* Pods-eMagApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eMagApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-eMagApp/Pods-eMagApp.debug.xcconfig"; sourceTree = "<group>"; };
 		42D9BA5D5226856561C851CB /* Pods-eMagApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eMagApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-eMagApp/Pods-eMagApp.release.xcconfig"; sourceTree = "<group>"; };
 		4EA5695841F404BAE91446E7 /* Pods_eMagApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_eMagApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -77,6 +87,8 @@
 		60CE1A54209C80E400BD5F21 /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		60CE1A56209C80EF00BD5F21 /* ProductDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDetails.swift; sourceTree = "<group>"; };
 		60CE1A58209C810700BD5F21 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
+		99D89561411769DB90BB01FE /* Pods_eMagAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_eMagAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B8BAC09A3F5BBBF5EFE9835B /* Pods-eMagAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eMagAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-eMagAppTests/Pods-eMagAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		C90B070420B413BD004CD740 /* ProductTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTesting.swift; sourceTree = "<group>"; };
 		C914419820AD7D8600706979 /* Double+format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+format.swift"; sourceTree = "<group>"; };
 		C914419A20AD7DE000706979 /* UIViewController+nav.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+nav.swift"; sourceTree = "<group>"; };
@@ -106,6 +118,9 @@
 		C91E79E120AC57910074DEAF /* ProductCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCellDelegate.swift; sourceTree = "<group>"; };
 		C91E79E320AC57F50074DEAF /* ProductCellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCellProtocol.swift; sourceTree = "<group>"; };
 		C9348BA220B44EF20073E0E8 /* DetailsScraperTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsScraperTesting.swift; sourceTree = "<group>"; };
+		C9D5BD3F20B5541A00C1D845 /* eMagAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = eMagAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9D5BD4120B5541A00C1D845 /* eMagAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = eMagAppUITests.swift; sourceTree = "<group>"; };
+		C9D5BD4320B5541A00C1D845 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +133,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		C914419F20ADB71600706979 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				601DDEA294828B2F36A27139 /* Pods_eMagAppTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C9D5BD3C20B5541A00C1D845 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -165,6 +188,7 @@
 			children = (
 				60A010692090755D00EAE5B1 /* eMagApp */,
 				C91441A320ADB71600706979 /* eMagAppTests */,
+				C9D5BD4020B5541A00C1D845 /* eMagAppUITests */,
 				60A010682090755D00EAE5B1 /* Products */,
 				96975BC414FE5F2983FC6934 /* Pods */,
 				DE0D2956470F48925A81BB67 /* Frameworks */,
@@ -176,6 +200,7 @@
 			children = (
 				60A010672090755D00EAE5B1 /* eMagApp.app */,
 				C91441A220ADB71600706979 /* eMagAppTests.xctest */,
+				C9D5BD3F20B5541A00C1D845 /* eMagAppUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -212,6 +237,8 @@
 			children = (
 				367FC2F533C8BD0F4F336A42 /* Pods-eMagApp.debug.xcconfig */,
 				42D9BA5D5226856561C851CB /* Pods-eMagApp.release.xcconfig */,
+				078979008847731C15006824 /* Pods-eMagAppTests.debug.xcconfig */,
+				B8BAC09A3F5BBBF5EFE9835B /* Pods-eMagAppTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -307,10 +334,20 @@
 			name = Scraper;
 			sourceTree = "<group>";
 		};
+		C9D5BD4020B5541A00C1D845 /* eMagAppUITests */ = {
+			isa = PBXGroup;
+			children = (
+				C9D5BD4120B5541A00C1D845 /* eMagAppUITests.swift */,
+				C9D5BD4320B5541A00C1D845 /* Info.plist */,
+			);
+			path = eMagAppUITests;
+			sourceTree = "<group>";
+		};
 		DE0D2956470F48925A81BB67 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				4EA5695841F404BAE91446E7 /* Pods_eMagApp.framework */,
+				99D89561411769DB90BB01FE /* Pods_eMagAppTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -341,9 +378,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C91441AB20ADB71600706979 /* Build configuration list for PBXNativeTarget "eMagAppTests" */;
 			buildPhases = (
+				097C79DF7F0B292E0A991DE9 /* [CP] Check Pods Manifest.lock */,
 				C914419E20ADB71600706979 /* Sources */,
 				C914419F20ADB71600706979 /* Frameworks */,
 				C91441A020ADB71600706979 /* Resources */,
+				DCBF793DB568DF4FC888BC4B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -354,6 +393,24 @@
 			productName = eMagAppTests;
 			productReference = C91441A220ADB71600706979 /* eMagAppTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		C9D5BD3E20B5541A00C1D845 /* eMagAppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C9D5BD4820B5541A00C1D845 /* Build configuration list for PBXNativeTarget "eMagAppUITests" */;
+			buildPhases = (
+				C9D5BD3B20B5541A00C1D845 /* Sources */,
+				C9D5BD3C20B5541A00C1D845 /* Frameworks */,
+				C9D5BD3D20B5541A00C1D845 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C9D5BD4520B5541A00C1D845 /* PBXTargetDependency */,
+			);
+			name = eMagAppUITests;
+			productName = eMagAppUITests;
+			productReference = C9D5BD3F20B5541A00C1D845 /* eMagAppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
@@ -369,6 +426,10 @@
 						CreatedOnToolsVersion = 9.3;
 					};
 					C91441A120ADB71600706979 = {
+						CreatedOnToolsVersion = 9.3.1;
+						TestTargetID = 60A010662090755D00EAE5B1;
+					};
+					C9D5BD3E20B5541A00C1D845 = {
 						CreatedOnToolsVersion = 9.3.1;
 						TestTargetID = 60A010662090755D00EAE5B1;
 					};
@@ -389,6 +450,7 @@
 			targets = (
 				60A010662090755D00EAE5B1 /* eMagApp */,
 				C91441A120ADB71600706979 /* eMagAppTests */,
+				C9D5BD3E20B5541A00C1D845 /* eMagAppUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -415,6 +477,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C9D5BD3D20B5541A00C1D845 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -430,6 +499,24 @@
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-eMagApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		097C79DF7F0B292E0A991DE9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-eMagAppTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -452,6 +539,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-eMagApp/Pods-eMagApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DCBF793DB568DF4FC888BC4B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-eMagAppTests/Pods-eMagAppTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SwiftSoup/SwiftSoup.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftSoup.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-eMagAppTests/Pods-eMagAppTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -503,6 +608,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C9D5BD3B20B5541A00C1D845 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C9D5BD4220B5541A00C1D845 /* eMagAppUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -510,6 +623,11 @@
 			isa = PBXTargetDependency;
 			target = 60A010662090755D00EAE5B1 /* eMagApp */;
 			targetProxy = C91441A720ADB71600706979 /* PBXContainerItemProxy */;
+		};
+		C9D5BD4520B5541A00C1D845 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 60A010662090755D00EAE5B1 /* eMagApp */;
+			targetProxy = C9D5BD4420B5541A00C1D845 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -655,10 +773,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = eMagApp/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Zenitech-Development.eMagApp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -674,10 +789,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = eMagApp/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Zenitech-Development.eMagApp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -687,15 +799,12 @@
 		};
 		C91441A920ADB71600706979 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 078979008847731C15006824 /* Pods-eMagAppTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = eMagAppTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = uk.zeni.eMagAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -706,20 +815,45 @@
 		};
 		C91441AA20ADB71600706979 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B8BAC09A3F5BBBF5EFE9835B /* Pods-eMagAppTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = eMagAppTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = uk.zeni.eMagAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/eMagApp.app/eMagApp";
+			};
+			name = Release;
+		};
+		C9D5BD4620B5541A00C1D845 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = eMagAppUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = uk.zeni.eMagAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = eMagApp;
+			};
+			name = Debug;
+		};
+		C9D5BD4720B5541A00C1D845 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = eMagAppUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = uk.zeni.eMagAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = eMagApp;
 			};
 			name = Release;
 		};
@@ -749,6 +883,15 @@
 			buildConfigurations = (
 				C91441A920ADB71600706979 /* Debug */,
 				C91441AA20ADB71600706979 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C9D5BD4820B5541A00C1D845 /* Build configuration list for PBXNativeTarget "eMagAppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C9D5BD4620B5541A00C1D845 /* Debug */,
+				C9D5BD4720B5541A00C1D845 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

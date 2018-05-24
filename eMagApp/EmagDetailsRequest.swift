@@ -11,14 +11,13 @@ import SwiftSoup
 
 class EmagDetailsRequest : EmagRequest {
     private var product : Product
-    init(product: Product, _ htmlRetriever: HtmlRetriever = Factory().htmlRetriever) {
+    init(product: Product, _ htmlRetriever: HtmlRetriever = Factory.htmlRetriever) {
         self.product = product
         super.init(url: URL(string: product.detailsUrl), htmlRetriever)
     }
     
     public func setProductDetails() {
-        let document = getDocumentFromHtml(
-            urlString: product.detailsUrl)
+        let document = getDocumentFromHtml()
         // ? if product.details != nil, do we return existing, or reload ?
         product.productDetails = parseProductDetails(document: document)
     }

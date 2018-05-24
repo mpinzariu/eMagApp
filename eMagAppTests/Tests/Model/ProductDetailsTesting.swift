@@ -19,7 +19,7 @@ class ProductDetailsTesting: XCTestCase {
 
     func testImageUrls_base() {
         let prod = makeProduct(TestConstants.prodUrlFirst)
-        let sut = EmagDetailsRequest(product: prod, MockedFactory().htmlRetriever)
+        let sut = EmagDetailsRequest(product: prod, MockedFactory.htmlRetriever)
         
         sut.setProductDetails()
         
@@ -34,7 +34,7 @@ class ProductDetailsTesting: XCTestCase {
 
     func testDetailsWithNoImageUrls() {
         let prod = makeProduct(TestConstants.prodUrlSecond)
-        let sut = EmagDetailsRequest(product: prod, MockedFactory().htmlRetriever)
+        let sut = EmagDetailsRequest(product: prod, MockedFactory.htmlRetriever)
         
         sut.setProductDetails()
         
@@ -51,4 +51,6 @@ class ProductDetailsTesting: XCTestCase {
     private func makeProduct(_ detailsUrl: String) -> Product {
         return Product(detailsUrl, "test product for Details", 13.33, URL(string: "/img"))
     }
+    
+    
 }

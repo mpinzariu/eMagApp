@@ -9,9 +9,8 @@
 import Foundation
 @testable import eMagApp
 
-internal class MockedFactory : Factory {
-    
-    override var htmlRetriever: HtmlRetriever { get { return StaticHtmlRetriever() } }
+internal struct MockedFactory{
+    static var htmlRetriever: HtmlRetriever { get { return StaticHtmlRetriever() } }
 }
 
 internal class StaticHtmlRetriever: HtmlRetriever {

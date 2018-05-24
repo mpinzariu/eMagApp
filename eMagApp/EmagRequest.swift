@@ -10,17 +10,17 @@ import SwiftSoup
 
 
 class EmagRequest {
-    private(set) var url: URL?
+    private(set) var url: URL
     private var htmlRetriever: HtmlRetriever
     
     init(url: URL?, _ htmlRetriever: HtmlRetriever) {
-        self.url = url
+        self.url = url!
         self.htmlRetriever = htmlRetriever
     }
     
     // MARK: - Helper Functions
-    // TODO: remove UrlSring parameter; we already have it.
-    func getDocumentFromHtml(urlString: String) -> Document {
+    func getDocumentFromHtml() -> Document {
+        let urlString = url.absoluteString
         if let documentFromCache = Cache.document.object(forKey: urlString as AnyObject) as? Document {
             return documentFromCache
         }

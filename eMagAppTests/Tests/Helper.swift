@@ -9,6 +9,7 @@
 import Foundation
 @testable import eMagApp
 
+// TODO: ? convert to EmagProductRequest extension?
 struct ProductHelper {
     
     static func getAllProductsToClosure(_ sut: EmagProductsRequest, _ appendingClosure: @escaping (Product) -> Void) {

@@ -20,14 +20,14 @@ class DetailsScraperTesting: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        let parentSut = EmagProductsRequest(search: TestConstants.searchStringApple, MockedFactory().htmlRetriever)
+        let parentSut = EmagProductsRequest(search: TestConstants.searchStringApple, MockedFactory.htmlRetriever)
         ProductHelper.getAllProductsToClosure(parentSut) { p in
             if p.detailsUrl == TestConstants.prodUrlFirst {
                 self.product = p
             }
         }
         XCTAssertNotNil(product, "Stopping Details Unit Testing: could not retrieve parent Product.")
-        sut = EmagDetailsRequest(product: product, MockedFactory().htmlRetriever)
+        sut = EmagDetailsRequest(product: product, MockedFactory.htmlRetriever)
     }
     
     override func tearDown() {

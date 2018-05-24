@@ -20,7 +20,7 @@ class ProductScraperTesting: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        sut = EmagProductsRequest(search: TestConstants.searchStringApple, MockedFactory().htmlRetriever)
+        sut = EmagProductsRequest(search: TestConstants.searchStringApple, MockedFactory.htmlRetriever)
     }
     
     override func tearDown() {

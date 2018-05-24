@@ -7,7 +7,6 @@
 //
 
 
-internal class Factory {
-    
-    var htmlRetriever: HtmlRetriever { get { return NetworkAccess() } }
+internal struct Factory {
+    static var htmlRetriever: HtmlRetriever { get { return NetworkAccess() } }
 }

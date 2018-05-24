@@ -14,7 +14,7 @@ class EmagProductsRequest : EmagRequest {
     private var searchString: String?
     private var elementsFromSearch: Elements? = nil
     
-    init(search: String, _ htmlRetriever: HtmlRetriever = Factory().htmlRetriever) {
+    init(search: String, _ htmlRetriever: HtmlRetriever = Factory.htmlRetriever) {
         self.searchString = search
         
         var url = URL(string: URLConst.EmagURLPrefix)
@@ -24,10 +24,19 @@ class EmagProductsRequest : EmagRequest {
     }
     
     // MARK: - Functions
+    public func fetchProducts(_ handler: @escaping (Product) -> Void) {
+        searchForProducts { results in
+            if let dictionary = results as? Dictionary<String, AnyObject>,
+                let newProduct = Product(data: dictionary)
+            {
+                handler(newProduct)
+            }
+        }
+    }
     
-    public func searchForProducts(handler: (PropertyList?) -> Void) {
+    private func searchForProducts(handler: (PropertyList?) -> Void) {
         do {
-            let document = getDocumentFromHtml(urlString: searchString!)
+            let document = getDocumentFromHtml()
             
             elementsFromSearch = try document.select(EmagKey.SearchMetadata.ProductClass)
             if elementsFromSearch != nil && elementsFromSearch!.array().count > 0 {
@@ -37,17 +46,6 @@ class EmagProductsRequest : EmagRequest {
             }
         } catch let error as NSError {
             log("Something went wrong on downloadHTML: \(error)")
-        }
-    }
-    
-    public func fetchProducts(_ handler: @escaping (Product) -> Void) {
-        
-        searchForProducts { results in
-            if let dictionary = results as? Dictionary<String, AnyObject>,
-                let newProduct = Product(data: dictionary)
-            {
-                handler(newProduct)
-            }
         }
     }
     
